@@ -3,7 +3,7 @@
 }
 
 button {
-  font-size: 26px;
+  font-size: 12px;
   //   border-radius: 20px;
   background-color: #1db954;
   color: white;
@@ -24,7 +24,7 @@ button:hover {
 }
 
 h1 {
-  font-size: 4.5rem;
+  font-size: 2.5rem;
   font-family: "Circular Std", system, -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 900;
 }
@@ -36,3 +36,17 @@ h1 {
 //======================================================================
 //                        MEDIA QUERY
 //======================================================================
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+  .welcome-text {
+    margin-top: 50%;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 13px;
+  }
+}
