@@ -1,0 +1,53 @@
+#navbar {
+  //   border: 1px solid green;
+  height: 100%;
+  width: 100px;
+  position: fixed;
+  background-color: #040306;
+  -webkit-box-shadow: 5px 1px 13px -9px #000000;
+  box-shadow: 5px 1px 13px -9px #000000;
+}
+
+#img-container {
+  img {
+    height: 50px;
+    width: 50px;
+    margin-left: 20px;
+    margin-top: 44px;
+  }
+}
+
+.navbar-nav {
+  //   border: 1px solid red;
+  margin-top: 210%;
+  color: #9b9b9b;
+  font-family: "Circular Std", system, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 11px;
+  //   border-left: 5px solid #040306;
+  text-align: center;
+
+  a {
+    color: #9b9b9b;
+  }
+
+  .nav-item {
+    // border: 1px solid green;
+    padding-top: 10px;
+    height: 80px;
+    border-left: 5px solid #040306;
+  }
+
+  .nav-item:hover {
+    color: white;
+    border-left: 5px solid #2ad164;
+    background-color: #181818;
+
+    a {
+      color: white;
+    }
+  }
+
+  .fa {
+    font-size: 24px;
+  }
+}
