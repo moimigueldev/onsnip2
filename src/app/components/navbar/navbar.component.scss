@@ -51,3 +51,67 @@
     font-size: 24px;
   }
 }
+
+footer {
+  display: none;
+}
+
+//======================================================================
+//                        MEDIA QUERY
+//======================================================================
+
+//IPHONE X
+@media only screen and (max-device-width: 927px) {
+  #navbar {
+    display: none;
+  }
+
+  footer {
+    display: block;
+  }
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #040306;
+    color: white;
+    text-align: center;
+    height: 70px;
+
+    .fa {
+      font-size: 24px;
+    }
+
+    .nav-item {
+      height: 70px;
+      //   width: 150px;
+      //   border: 1px solid red;
+      color: #9b9b9b;
+      font-family: "Circular Std", system, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 11px;
+      border-top: 5px solid #040306;
+      text-align: center;
+    }
+
+    .nav-link {
+      padding-right: 8px;
+      padding-left: 8px;
+    }
+
+    a {
+      color: #9b9b9b;
+    }
+
+    .nav-item:hover {
+      color: white;
+      border-top: 5px solid #2ad164;
+      background-color: #181818;
+
+      a {
+        color: white;
+      }
+    }
+  }
+}
