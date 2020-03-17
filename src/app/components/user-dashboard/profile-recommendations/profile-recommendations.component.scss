@@ -1,6 +1,7 @@
 .container {
   //   border: 1px solid red;
   margin-top: 70px;
+  margin-bottom: 100px;
 }
 
 .recommended-header {
@@ -11,7 +12,48 @@
 
 .artist {
   //   border: 1px solid green;
-}
+
+  .artist-list {
+    // border: 1px solid blue;
+
+    margin-top: 40px;
+
+    .icon {
+      //   border: 1px solid red;
+      //   display: inline-block;
+      display: none;
+      margin-left: 150px;
+
+      .fa {
+        font-size: 20px;
+      }
+    }
+
+    img {
+      display: inline-block;
+      height: 53px;
+      //   width: 74px;
+    }
+    h5 {
+      display: inline-block;
+      margin-left: 14px;
+      font-size: 16px;
+    }
+
+    h5:hover {
+      border-bottom: 2px solid white;
+    }
+  }
+
+  .artist-list:hover {
+    // background-color: black;
+    // opacity: 0.8;
+    .icon {
+      display: inline-block;
+    }
+  }
+} //end of artist
+
 .tracks {
   //   border: 1px solid yellow;
 }
@@ -31,4 +73,26 @@
 .view-all-button:hover {
   background-color: white;
   color: black;
+}
+
+//======================================================================
+//                        MEDIA QUERY
+//======================================================================
+
+//IPHONE X
+@media only screen and (max-device-width: 927px) {
+  .artist-list {
+    // background-color: black;
+    // opacity: 0.8;
+    .icon {
+      border: 1px solid red;
+      margin: 0;
+      display: inline-block;
+
+      .fa {
+        border: 1px solid blue;
+        // display: none;
+      }
+    }
+  }
 }

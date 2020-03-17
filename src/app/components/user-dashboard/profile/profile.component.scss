@@ -47,6 +47,9 @@ img {
 .profile-info {
   color: #1db954;
   font-weight: 700;
+  font-family: sans-serif;
+  font-size: 19px;
+  letter-spacing: -1px;
 }
 
 .text-muted {
@@ -65,7 +68,7 @@ img {
   display: none;
 }
 
-.logout-button {
+.logout-button:hover {
   background-color: white;
   color: black;
 }
