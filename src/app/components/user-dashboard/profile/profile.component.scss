@@ -26,3 +26,25 @@ img {
   font-size: 14px;
   color: #9b9b9b;
 }
+
+.logout-button {
+  border: 1px solid white;
+  color: white;
+  width: 115px;
+  border-radius: 19px;
+  height: 47px;
+  font-size: 14px;
+  font-weight: 700;
+  display: none;
+}
+
+//======================================================================
+//                        MEDIA QUERY
+//======================================================================
+
+//IPHONE X
+@media only screen and (max-device-width: 927px) {
+  .logout-button {
+    display: inline-block;
+  }
+}
