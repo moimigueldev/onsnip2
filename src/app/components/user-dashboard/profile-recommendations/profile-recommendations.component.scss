@@ -11,7 +11,7 @@
 }
 
 .artist {
-  border: 1px solid green;
+  //   border: 1px solid green;
 
   .artist-list {
     // border: 1px solid blue;
@@ -56,7 +56,7 @@
 } //end of artist
 
 .tracks {
-  border: 1px solid yellow;
+  //   border: 1px solid yellow;
 
   .song-list {
     margin-top: 40px;
@@ -87,6 +87,29 @@
       .fa {
         margin-top: 30%;
         font-size: 20px;
+      }
+    }
+
+    .song-info {
+      //   border: 1px solid red;
+      height: 50px;
+      margin-left: 15px;
+
+      p {
+        margin-bottom: 0;
+      }
+
+      .song-title {
+        font-weight: 700;
+      }
+
+      .song-title:hover {
+        color: rgb(224, 224, 224);
+      }
+
+      .text-muted {
+        font-size: 13px;
+        font-weight: 700;
       }
     }
   } //end of .song-list
