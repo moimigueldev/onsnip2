@@ -1,0 +1,29 @@
+.container {
+  //   border: 1px solid red;
+  margin-top: 100px;
+}
+
+.favorite-header {
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.time-options {
+  //   border: 1px solid blue;
+  p {
+    display: inline-block;
+    font-weight: 600;
+    color: #6c757d;
+    margin-left: 20px;
+    font-size: 15px;
+  }
+
+  p:hover {
+    cursor: pointer;
+  }
+
+  p.active {
+    color: white;
+    border-bottom: 1px solid white;
+  }
+}
