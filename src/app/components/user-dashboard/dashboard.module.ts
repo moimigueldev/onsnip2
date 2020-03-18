@@ -12,6 +12,6 @@ import { ProfileRecommendationsComponent } from './profile-recommendations/profi
   imports: [
     CommonModule
   ],
-  // exports: [DashboardComponent]
+  exports: [DashboardComponent, NavbarComponent]
 })
 export class DashboardModule { }

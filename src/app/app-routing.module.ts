@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { DashboardComponent } from './components/user-dashboard/dashboard/dashboard.component';
+import { FavoriteTracksComponent } from './components/favorite-tracks/favorite-tracks.component';
 
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'favoritetracks', component: FavoriteTracksComponent },
 ];
 
 @NgModule({

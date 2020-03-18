@@ -6,11 +6,12 @@ import { CoreModule } from '../core/core.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardModule } from './user-dashboard/dashboard.module';
 import { ProfileComponent } from './user-dashboard/profile/profile.component';
+import { FavoriteTracksComponent } from './favorite-tracks/favorite-tracks.component';
 
 
 
 @NgModule({
-  declarations: [WelcomeComponent],
+  declarations: [WelcomeComponent, FavoriteTracksComponent],
   imports: [
     CommonModule,
     DashboardModule
