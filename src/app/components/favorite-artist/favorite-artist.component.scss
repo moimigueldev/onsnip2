@@ -1,0 +1,114 @@
+.container {
+  //   border: 1px solid red;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.favorite-header {
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.time-options {
+  //   border: 1px solid blue;
+  p {
+    display: inline-block;
+    font-weight: 600;
+    color: #6c757d;
+    margin-left: 20px;
+    font-size: 15px;
+  }
+
+  p:hover {
+    cursor: pointer;
+  }
+
+  p.active {
+    color: white;
+    border-bottom: 1px solid white;
+  }
+}
+
+//======================================================================
+//                        Artist QUERY
+//======================================================================
+
+.artist-column {
+  // border: 1px solid red;
+  margin-top: 70px;
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.img-container {
+  display: inline-block;
+  position: relative;
+}
+
+img {
+  // display: inline-block;
+  height: 220px;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: black;
+  text-align: center;
+  border-radius: 100%;
+
+  .fa {
+    margin-top: 95px;
+    font-size: 40px;
+  }
+}
+
+.artist-column:hover .overlay {
+  opacity: 0.5;
+  // cursor: pointer;
+}
+
+.overlay:hover {
+  cursor: pointer;
+}
+
+.artist-name {
+  margin-top: 10px;
+  display: inline-block;
+  // border: 1px solid yellow;
+}
+.artist-name:hover {
+  border-bottom: 2px solid white;
+  display: inline-block;
+  cursor: pointer;
+}
+
+//======================================================================
+//                        MEDIA QUERY
+//======================================================================
+
+//IPHONE X
+@media only screen and (max-device-width: 927px) {
+  // .favorite-header {
+  //   font-size: 16px;
+  // }
+
+  // .time-options {
+  //   p {
+  //     margin-left: 9px;
+  //     font-size: 10px;
+  //   }
+  // }
+}

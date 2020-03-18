@@ -8,11 +8,12 @@ import { DashboardModule } from './user-dashboard/dashboard.module';
 import { ProfileComponent } from './user-dashboard/profile/profile.component';
 import { FavoriteTracksComponent } from './favorite-tracks/favorite-tracks.component';
 import { RecentComponent } from './recent/recent.component';
+import { FavoriteArtistComponent } from './favorite-artist/favorite-artist.component';
 
 
 
 @NgModule({
-  declarations: [WelcomeComponent, FavoriteTracksComponent, RecentComponent],
+  declarations: [WelcomeComponent, FavoriteTracksComponent, RecentComponent, FavoriteArtistComponent],
   imports: [
     CommonModule,
     DashboardModule
