@@ -27,3 +27,21 @@
     border-bottom: 1px solid white;
   }
 }
+
+//======================================================================
+//                        MEDIA QUERY
+//======================================================================
+
+//IPHONE X
+@media only screen and (max-device-width: 927px) {
+  .favorite-header {
+    font-size: 16px;
+  }
+
+  .time-options {
+    p {
+      margin-left: 9px;
+      font-size: 10px;
+    }
+  }
+}
