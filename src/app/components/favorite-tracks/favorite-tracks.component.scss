@@ -85,7 +85,7 @@
     }
 
     .song-title:hover {
-      color: rgb(224, 224, 224);
+      //   color: rgb(224, 224, 224);
       margin-bottom: 0px;
       border-bottom: 2px solid white;
       display: inline-block;
@@ -94,6 +94,7 @@
     .text-muted {
       font-size: 14px;
       font-weight: inherit;
+      color: #9b9b9b;
     }
   }
 } //end of .song-list
