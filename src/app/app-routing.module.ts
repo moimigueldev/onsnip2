@@ -5,6 +5,7 @@ import { DashboardComponent } from './components/user-dashboard/dashboard/dashbo
 import { FavoriteTracksComponent } from './components/favorite-tracks/favorite-tracks.component';
 import { RecentComponent } from './components/recent/recent.component';
 import { FavoriteArtistComponent } from './components/favorite-artist/favorite-artist.component';
+import { PlaylistComponent } from './components/playlist/playlist.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'favoritetracks', component: FavoriteTracksComponent },
   { path: 'recent', component: RecentComponent },
   { path: 'favoriteartist', component: FavoriteArtistComponent },
+  { path: 'playlist', component: PlaylistComponent },
 ];
 
 @NgModule({
