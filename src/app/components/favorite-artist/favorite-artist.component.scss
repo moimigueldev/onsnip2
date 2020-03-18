@@ -87,9 +87,11 @@ img:hover {
 .artist-name {
   margin-top: 10px;
   display: inline-block;
+  margin-bottom: 2px;
   // border: 1px solid yellow;
 }
 .artist-name:hover {
+  margin-bottom: 0;
   border-bottom: 2px solid white;
   display: inline-block;
   cursor: pointer;
@@ -101,14 +103,19 @@ img:hover {
 
 //IPHONE X
 @media only screen and (max-device-width: 927px) {
-  // .favorite-header {
-  //   font-size: 16px;
-  // }
+  .favorite-header {
+    font-size: 16px;
+  }
 
-  // .time-options {
-  //   p {
-  //     margin-left: 9px;
-  //     font-size: 10px;
-  //   }
-  // }
+  .time-options {
+    p {
+      margin-left: 9px;
+      font-size: 10px;
+    }
+  }
+
+  .artist-name {
+    margin-top: 10px;
+    display: block;
+  }
 }
