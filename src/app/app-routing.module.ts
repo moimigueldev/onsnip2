@@ -7,6 +7,7 @@ import { RecentComponent } from './components/recent/recent.component';
 import { FavoriteArtistComponent } from './components/favorite-artist/favorite-artist.component';
 import { PlaylistComponent } from './components/playlist/playlist.component';
 import { ArtistComponent } from './components/artist/artist.component';
+import { TrackComponent } from './components/track/track.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'favoriteartists', component: FavoriteArtistComponent },
   { path: 'playlist', component: PlaylistComponent },
   { path: 'artist', component: ArtistComponent },
+  { path: 'track', component: TrackComponent },
 ];
 
 @NgModule({

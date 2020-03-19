@@ -1,16 +1,22 @@
 .container {
-  margin-top: 200px;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 h1 {
   font-family: "Circular Std", system, -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: bold;
-  font-size: 45px;
+  font-weight: 600;
+  font-size: 70px;
 }
 
 h1:hover {
   color: #5be28b;
   animation: transColor 1s ease-out forwards;
+}
+
+h5 {
+  font-size: 26px !important;
+  font-weight: 700;
 }
 
 @keyframes transColor {
@@ -61,26 +67,44 @@ img {
   border: 1px solid white;
   color: white;
   width: 115px;
-  border-radius: 54px;
+  border-radius: 19px;
   height: 51px;
   font-size: 20px;
   font-weight: 700;
 }
 .following-button {
-  //   border: 1px solid white;
   color: white;
-  width: 115px;
-  border-radius: 54px;
+  width: 185px;
+  border-radius: 44px;
   height: 51px;
   font-size: 20px;
   font-weight: 100;
-  background-color: #1db954;
-  cursor: default;
+  background-color: #179643;
 }
 
-.follow-button:hover {
-  background-color: white;
-  color: black;
+.following-button:hover {
+  background-color: #1db954;
+}
+
+//======================================================================
+//                        TABLE QUERY
+//======================================================================
+
+tr {
+  background-color: #181818;
+  color: #6c757d;
+
+  .title {
+    margin-bottom: 0;
+    font-size: 28px;
+    font-weight: 900;
+  }
+
+  .helper {
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+  }
 }
 
 //======================================================================
@@ -90,6 +114,25 @@ img {
 //IPHONE X
 @media only screen and (max-device-width: 927px) {
   .container {
-    margin-top: 100px;
+    margin-top: 46px;
+  }
+
+  .col-md-12 {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  tr {
+    .title {
+      margin-bottom: 0;
+      font-size: 19px;
+      font-weight: 900;
+    }
+
+    .helper {
+      margin-bottom: 0;
+      font-size: 10px;
+      font-weight: 400;
+    }
   }
 }
