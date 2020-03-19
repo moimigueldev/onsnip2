@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'favoritetracks', component: FavoriteTracksComponent },
   { path: 'recent', component: RecentComponent },
-  { path: 'favoriteartist', component: FavoriteArtistComponent },
+  { path: 'favoriteartists', component: FavoriteArtistComponent },
   { path: 'playlist', component: PlaylistComponent },
 ];
 
