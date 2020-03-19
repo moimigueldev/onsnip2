@@ -6,12 +6,13 @@ import { FavoriteTracksComponent } from './favorite-tracks/favorite-tracks.compo
 import { RecentComponent } from './recent/recent.component';
 import { FavoriteArtistComponent } from './favorite-artist/favorite-artist.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { ArtistComponent } from './artist/artist.component';
 
 
 
 
 @NgModule({
-  declarations: [WelcomeComponent, FavoriteTracksComponent, RecentComponent, FavoriteArtistComponent, PlaylistComponent],
+  declarations: [WelcomeComponent, FavoriteTracksComponent, RecentComponent, FavoriteArtistComponent, PlaylistComponent, ArtistComponent],
   imports: [
     CommonModule,
     DashboardModule,
