@@ -31,13 +31,14 @@
 
     img {
       display: inline-block;
-      height: 53px;
+      height: 88px;
       //   width: 74px;
     }
     h5 {
       display: inline-block;
       margin-left: 14px;
       font-size: 16px;
+      cursor: pointer;
     }
 
     h5:hover {
@@ -92,7 +93,7 @@
 
     img {
       // display: inline-block;
-      height: 50px;
+      height: 88px;
     }
 
     .overlay {
@@ -107,9 +108,10 @@
       transition: 0.5s ease;
       background-color: black;
       text-align: center;
+      border-radius: 100%;
 
       .fa {
-        margin-top: 30%;
+        margin-top: 37%;
         font-size: 20px;
       }
     }
@@ -134,10 +136,11 @@
         margin-bottom: 0px;
         border-bottom: 2px solid white;
         display: inline-block;
+        cursor: pointer;
       }
 
       .text-muted {
-        font-size: 11px;
+        font-size: 14px;
         font-weight: 700;
       }
     }

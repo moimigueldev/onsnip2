@@ -1,18 +1,17 @@
-<div class="container">
+<!-- <div class="container" *ngIf="newReleases && featuredPlaylist">
     <div class="row">
 
 
         <div class="col-md-6 artist">
             <div class="d-flex flex-row justify-content-between mt-3 mb-3">
-                <h5 class="recommended-header">Recommended Artist</h5>
+                <h5 class="recommended-header">New Releases</h5>
                 <button class="btn view-all-button">View All</button>
             </div>
 
-            <div class="artist-list">
-                <img src="https://i.scdn.co/image/ac5cb571c194ca5a942b8096618217839b901a76" alt=""
-                    class="rounded-circle">
+            <div class="artist-list" *ngFor="let songs of newReleases.items">
+                <img src="{{songs.images[2].url}}" alt="" class="rounded-circle">
 
-                <h5>Kanye West</h5>
+                <h5>{{songs.name}}</h5>
 
                 <div class="icon">
                     <i class="fa fa-info-circle ml-auto"></i>
@@ -25,24 +24,75 @@
 
         <div class="col-md-6 tracks">
             <div class="d-flex flex-row justify-content-between mt-3 mb-3">
-                <h5 class="recommended-header">Recommended Songs</h5>
+                <h5 class="recommended-header">{{featuredPlaylist.message}}</h5>
                 <button class="btn view-all-button">View All</button>
             </div>
 
-            <div class="song-list d-flex flex-row ">
+            <div class="song-list d-flex flex-row " *ngFor="let pl of featuredPlaylist.playlists.items">
                 <div class="img-container">
-                    <img src="https://i.scdn.co/image/ac5cb571c194ca5a942b8096618217839b901a76" alt="" class="">
+                    <img src="{{pl.images[0].url}}" alt="" class="">
                     <div class="overlay">
                         <i class="fa fa-info-circle "></i>
                     </div>
                 </div>
 
                 <div class="song-info">
-                    <p class="song-title">These Walls</p>
+                    <p class="song-title">{{pl.name}}</p>
                     <p class="text-muted">Kendrick Lamar - Section 80Kendrick Lamar - Section 80Kendrick Lamar - Section
                         80</p>
                 </div>
                 <p class="mt-auto ml-auto text-muted" style="font-weight: bolder;">5:90</p>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div> -->
+<div class="container" *ngIf="newReleases && featuredPlaylist">
+    <div class="row">
+
+
+        <div class="col-md-6 artist">
+            <div class="d-flex flex-row justify-content-between mt-3 mb-3">
+                <h5 class="recommended-header">{{featuredPlaylist.message}}</h5>
+                <button class="btn view-all-button">View All</button>
+            </div>
+
+            <div class="artist-list" *ngFor="let pl of featuredPlaylist.playlists.items">
+                <img src="{{pl.images[0].url}}" alt="">
+
+                <h5>{{pl.name}}</h5>
+
+                <div class="icon">
+                    <i class="fa fa-info-circle ml-auto"></i>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="col-md-6 tracks">
+            <div class="d-flex flex-row justify-content-between mt-3 mb-3">
+                <h5 class="recommended-header">New Releases</h5>
+                <button class="btn view-all-button">View All</button>
+            </div>
+
+            <div class="song-list d-flex flex-row " *ngFor="let songs of newReleases.items">
+                <div class="img-container">
+                    <img src="{{songs.images[2].url}}" alt="" class="rounded-circle">
+                    <div class="overlay">
+                        <i class="fa fa-info-circle  "></i>
+                    </div>
+                </div>
+
+                <div class="song-info">
+                    <p class="song-title">{{songs.name}}</p>
+                    <p class="text-muted">{{songs.artists[0].name}}
+                </div>
+                <p class="mt-auto ml-auto text-muted" style="font-weight: bolder;">{{songs.total_tracks}}</p>
 
             </div>
 

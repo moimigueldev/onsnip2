@@ -23,7 +23,6 @@ export class ProfileComponent implements OnInit {
       this.profile = res['profile']
       this.playlist = res['playlist'].total
 
-      console.log("profile", this.profile)
     })
 
   }
