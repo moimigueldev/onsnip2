@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OauthLoginService } from 'src/app/services/login/oauth-login.service';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -9,15 +9,17 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
+  dashboard: any;
 
 
   constructor(
-    private router: Router,
+
     private loginService: OauthLoginService
   ) { }
 
   ngOnInit() {
     this.loginService.checkForAccesToken();
+
   }
 
 

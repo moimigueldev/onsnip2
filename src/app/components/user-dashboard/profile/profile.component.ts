@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user/user.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  profile: any;
+  playlist: number;
 
-  ngOnInit() {
+  profileSubscription: Subscription;
+
+  constructor(
+    private userService: UserService
+  ) { }
+
+  ngOnInit(): void {
+    this.profileSubscription = this.userService.getUserDashboard().subscribe(res => {
+      this.profile = res['profile']
+      this.playlist = res['playlist'].total
+
+      console.log("profile", this.profile)
+    })
+
+  }
+
+  ngOnDestroy() {
+    this.profileSubscription ? this.profileSubscription.unsubscribe() : null
   }
 
 }

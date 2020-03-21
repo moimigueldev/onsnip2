@@ -3,13 +3,17 @@
   //   text-align: center;
 }
 
-h1 {
+.header {
   font-family: "Circular Std", system, -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: bold;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 35px;
 }
 
-h1:hover {
-  color: #5be28b;
+.header:hover {
+  color: #3aff7f;
   animation: transColor 1s ease-out forwards;
 }
 
@@ -40,8 +44,7 @@ h1:hover {
 }
 
 img {
-  height: 150px;
-  width: 150px;
+  height: 180px;
 }
 
 .profile-info {

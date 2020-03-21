@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { urlRoutes } from '../../../assets/secret'
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { UserService } from '../user/user.service';
 
 
 @Injectable({
@@ -15,7 +16,8 @@ export class OauthLoginService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private userService: UserService
 
   ) {
 
@@ -41,13 +43,15 @@ export class OauthLoginService {
       }
     }
 
-    this.getUserDashboard();
+    this.userService.getUserDashboard()
+    // this.getUserDashboard();
 
   }// end of checkForAccesToken
 
   getUserDashboard() {
     const token = this.cookieService.get('access-token')
-    console.log('getting user Dashboard', token)
+    return this.http.post(urlRoutes['user'], { token });
+
   }
 
 
