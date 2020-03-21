@@ -9,12 +9,13 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import { ArtistComponent } from './artist/artist.component';
 import { TrackComponent } from './track/track.component';
 import { RedirectComponent } from './redirect/redirect.component';
+import { PlaylistIdComponent } from './playlist-id/playlist-id.component';
 
 
 
 
 @NgModule({
-  declarations: [WelcomeComponent, FavoriteTracksComponent, RecentComponent, FavoriteArtistComponent, PlaylistComponent, ArtistComponent, TrackComponent, RedirectComponent],
+  declarations: [WelcomeComponent, FavoriteTracksComponent, RecentComponent, FavoriteArtistComponent, PlaylistComponent, ArtistComponent, TrackComponent, RedirectComponent, PlaylistIdComponent],
   imports: [
     CommonModule,
     DashboardModule,

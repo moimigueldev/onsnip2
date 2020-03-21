@@ -1,0 +1,118 @@
+.container-fluid {
+  //   border: 1px solid red;
+  margin-top: 50px;
+  padding-left: 126px;
+}
+
+.album-info {
+  text-align: center;
+  padding-left: 70px;
+  //   border: 1px solid yellow;
+}
+
+.img {
+  text-align: center;
+}
+
+.album-image {
+  width: 450px;
+  height: 450px;
+}
+
+.album-header {
+  font-size: 39px;
+  font-weight: 700;
+}
+
+.album-artist {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.following-button {
+  color: white;
+  width: 145px;
+  border-radius: 54px;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 100;
+  background-color: #1db954;
+  padding: 0;
+}
+
+.tracks {
+  //   border: 1px solid red;
+}
+
+.song-list {
+  // border: 1px solid orange;
+  margin-top: 40px;
+
+  .img-container {
+    display: inline-block;
+    position: relative;
+  }
+
+  img {
+    // display: inline-block;
+    height: 70px;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: black;
+    text-align: center;
+
+    .fa {
+      margin-top: 30%;
+      font-size: 20px;
+    }
+  }
+
+  .song-info {
+    // border: 1px solid red;
+    height: 50px;
+    margin-left: 15px;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .song-title {
+      font-weight: 700;
+      font-size: 17px;
+      margin-bottom: 2px;
+    }
+
+    .song-title:hover {
+      //   color: rgb(224, 224, 224);
+      margin-bottom: 0px;
+      border-bottom: 2px solid white;
+      display: inline-block;
+    }
+
+    .text-muted {
+      font-size: 14px;
+      font-weight: inherit;
+      color: #9b9b9b;
+    }
+  }
+} //end of .song-list
+
+.song-list:hover .overlay {
+  opacity: 0.5;
+}
+//IPHONE X
+@media only screen and (max-device-width: 927px) {
+  .container-fluid {
+    padding-left: 0;
+  }
+}

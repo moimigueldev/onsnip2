@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { OauthLoginService } from './services/login/oauth-login.service';
 import { UserService } from './services/user/user.service';
+import { PlaylistService } from './services/playlist/playlist.service';
 
 
 
@@ -25,7 +26,7 @@ import { UserService } from './services/user/user.service';
 
     // RouterModule
   ],
-  providers: [CookieService, OauthLoginService, UserService],
+  providers: [CookieService, OauthLoginService, UserService, PlaylistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,6 +9,7 @@ import { PlaylistComponent } from './components/playlist/playlist.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { TrackComponent } from './components/track/track.component';
 import { RedirectComponent } from './components/redirect/redirect.component';
+import { PlaylistIdComponent } from './components/playlist-id/playlist-id.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'artist', component: ArtistComponent },
   { path: 'track', component: TrackComponent },
   { path: 'redirect', component: RedirectComponent },
+  { path: 'album/:id', component: PlaylistIdComponent },
 ];
 
 @NgModule({
