@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+import { OauthLoginService } from './services/login/oauth-login.service';
+import { UserService } from './services/user/user.service';
 
 
 
@@ -22,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
 
     // RouterModule
   ],
-  providers: [],
+  providers: [CookieService, OauthLoginService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

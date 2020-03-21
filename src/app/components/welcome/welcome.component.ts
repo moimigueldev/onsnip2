@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { OauthLoginService } from 'src/app/services/login/oauth-login.service';
 
 
 @Component({
@@ -17,9 +18,22 @@ import { trigger, style, animate, transition } from '@angular/animations';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+
+
+  constructor(
+    private loginService: OauthLoginService
+  ) { }
 
   ngOnInit() {
+
   }
+
+  loginUser() {
+    this.loginService.fetchUser()
+  }
+
+
+
+
 
 }
