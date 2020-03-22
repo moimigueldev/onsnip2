@@ -5,6 +5,11 @@
   margin-bottom: 50px;
 }
 
+.track-total {
+  font-weight: 700;
+  font-size: 13px;
+}
+
 .album-info {
   text-align: center;
   // border: 1px solid yellow;
@@ -31,6 +36,7 @@
 .album-artist {
   font-weight: 600;
   font-size: 13px;
+  margin-bottom: 3px;
 }
 
 .following-button {
@@ -142,6 +148,9 @@
   }
   .list {
     padding-right: 0 !important;
+  }
+  .track-total {
+    margin-left: 0 !important;
   }
 
   .img-container {
