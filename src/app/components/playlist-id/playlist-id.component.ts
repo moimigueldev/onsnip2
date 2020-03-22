@@ -25,6 +25,12 @@ export class PlaylistIdComponent implements OnInit {
     })
   }
 
+  listenOnSpotifyButton(): void {
+    console.log('clicked', this.album.external_urls.spotify)
+    // "location.href = 'www.yoursite.com'
+    location.href = this.album.external_urls.spotify
+  }
+
 
   ngOnDestroy() {
     this.albumSub ? this.albumSub.unsubscribe() : null

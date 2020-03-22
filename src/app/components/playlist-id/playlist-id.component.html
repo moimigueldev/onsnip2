@@ -5,15 +5,15 @@
 
         <div class="col-md-4 album-info px-0 ">
             <div class="img ">
-                <img src="{{album.images[0].url}}" class="album-image px-auto ml-5" alt="">
+                <img src="{{album.images[0].url}}" class="album-image px-auto ml-md-5 ml-sm-0" alt="">
             </div>
 
-            <h1 class="album-header mt-md-3 ml-5">After Hours</h1>
+            <h1 class="album-header mt-md-3 ml-md-5 ">After Hours</h1>
             <p class="text-muted album-artist ml-5">by The Weekedn</p>
-            <button class=" btn following-button ml-5 ">Listen On Spotify</button>
+            <button class=" btn following-button ml-5 " (click)="listenOnSpotifyButton()">Listen On Spotify</button>
         </div>
 
-        <div class="col-md-6 px-0 pr-5 " style="border: 1px solid red;">
+        <div class="col-md-6 px-0 pr-5 list ">
 
             <div class="song-list d-flex flex-row tracks" *ngFor="let track of album.tracks.items">
                 <div class="img-container">
@@ -25,7 +25,7 @@
 
                 <div class="song-info mt-md-auto mt-sm-0 mt-xs-0">
                     <p class="song-title">{{track.name}}</p>
-                    <p class="text-muted">{{track.artists[0].name}} - Section 80Kendrick Lamar
+                    <p class="text-muted">{{track.artists[0].name}}
                         80</p>
                 </div>
                 <p class="mt-auto ml-auto text-muted" style="font-weight: 500;">{{track.duration_ms}}</p>

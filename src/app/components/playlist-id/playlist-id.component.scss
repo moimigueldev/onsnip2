@@ -121,4 +121,34 @@
   .container-fluid {
     padding-left: 0;
   }
+
+  .album-image {
+    width: 327px;
+    height: 327px;
+  }
+
+  .song-info {
+    text-align: left;
+    margin-right: 20px;
+  }
+
+  .album-artist {
+    margin-left: 0 !important;
+  }
+
+  .following-button {
+    margin-left: 0 !important;
+    margin-bottom: 25px;
+  }
+  .list {
+    padding-right: 0 !important;
+  }
+
+  .img-container {
+    margin-left: 21px;
+  }
+
+  .song-list {
+    padding-right: 11px;
+  }
 }
