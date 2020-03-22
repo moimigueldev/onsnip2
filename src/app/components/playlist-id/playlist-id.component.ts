@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from 'src/app/services/playlist/playlist.service';
 import { Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-playlist-id',
   templateUrl: './playlist-id.component.html',
@@ -19,8 +20,8 @@ export class PlaylistIdComponent implements OnInit {
   ngOnInit() {
     this.albumSub = this.playlistService.getPlaylist().subscribe(res => {
       this.album = res;
-      console.log('res', this.album.tracks.items)
-
+      this.album = this.playlistService.convertToMins(this.album)
+      console.log('album', this.album)
     })
   }
 
