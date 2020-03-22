@@ -21,13 +21,10 @@ export class PlaylistIdComponent implements OnInit {
     this.albumSub = this.playlistService.getPlaylist().subscribe(res => {
       this.album = res;
       this.album = this.playlistService.convertToMins(this.album)
-      console.log('album', this.album)
     })
   }
 
   listenOnSpotifyButton(): void {
-    console.log('clicked', this.album.external_urls.spotify)
-    // "location.href = 'www.yoursite.com'
     location.href = this.album.external_urls.spotify
   }
 

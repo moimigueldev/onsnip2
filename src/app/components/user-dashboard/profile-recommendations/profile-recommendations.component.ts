@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user/user.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-recommendations',
@@ -15,7 +16,8 @@ export class ProfileRecommendationsComponent implements OnInit {
 
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -24,6 +26,11 @@ export class ProfileRecommendationsComponent implements OnInit {
       this.featuredPlaylist = res['featuredPlaylist']
       console.log('pl', this.newReleases)
     })
+  }
+
+  goToAlbum(id) {
+    console.log('clicked', id)
+    this.router.navigate([`/album/${id}`])
   }
 
 

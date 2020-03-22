@@ -13,7 +13,7 @@ export class PlaylistService {
 
   id: string;
 
-  testId = "4yP0hdKOZPNshxUOjY0cZj";
+
 
   constructor(
     private route: ActivatedRoute,
@@ -23,13 +23,14 @@ export class PlaylistService {
   ) { }
 
   ngOnInit() {
-    this.id = this.route.children[0].params['_value'].id
 
   }
 
   getPlaylist() {
     const token = this.cookieService.get('access-token')
-    return this.http.post(urlRoutes['playlistId'], { id: this.testId, token })
+    this.id = this.route.children[0].params['_value'].id
+    console.log('this is the id', this.id)
+    return this.http.post(urlRoutes['playlistId'], { id: this.id, token })
   }
 
   convertToMins(arr) {
