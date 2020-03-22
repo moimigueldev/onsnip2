@@ -17,14 +17,14 @@
 
             <div class="song-list d-flex flex-row tracks" *ngFor="let track of album.tracks.items">
                 <div class="img-container">
-                    <img src="{{album.images[0].url}}" alt="" class="">
+                    <img src="{{album.images[0].url}}" alt="" class="" (click)="goToTrack(track.id)">
                     <div class="overlay">
                         <i class="fa fa-info-circle "></i>
                     </div>
                 </div>
 
                 <div class="song-info mt-md-auto mt-sm-0 mt-xs-0">
-                    <p class="song-title">{{track.name}}</p>
+                    <p class="song-title" (click)="goToTrack(track.id)">{{track.name}}</p>
                     <p class="text-muted">{{track.artists[0].name}}</p>
                 </div>
                 <p class="mt-auto ml-auto text-muted" style="font-weight: 500;">{{track.duration_ms}}</p>

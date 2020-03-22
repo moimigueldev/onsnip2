@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'favoriteartists', component: FavoriteArtistComponent },
   { path: 'playlist', component: PlaylistComponent },
   { path: 'artist/:id', component: ArtistComponent },
-  { path: 'track', component: TrackComponent },
+  { path: 'track/:id', component: TrackComponent },
   { path: 'redirect', component: RedirectComponent },
   { path: 'album/:id', component: PlaylistIdComponent },
 ];

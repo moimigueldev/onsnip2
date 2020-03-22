@@ -26,7 +26,6 @@ export class ProfileRecommendationsComponent implements OnInit {
       this.newReleases = res['newReleases'].albums
       this.featuredPlaylist = res['featuredPlaylist']
       this.topArtists = res['topArtists']
-      console.log('res', this.topArtists)
 
     })
   }

@@ -1,12 +1,13 @@
 <app-navbar></app-navbar>
-<div class="container">
+<div class="container" *ngIf="track && trackFeatures">
     <div class="row mt-4">
         <div class="col-md-12 profile-content">
-            <img src="https://i.scdn.co/image/ab67616d0000b2732fb855430bbc5abe85e04e31" alt="">
+            <img src="{{track.album.images[0].url}}" alt="">
             <br>
-            <h1 class="mt-3" style="display: inline-block;">Colours</h1>
-            <h5 class="text-muted">Grouplove</h5>
-
+            <h1 class="mt-3" style="display: inline-block;">{{track.name}}</h1>
+            <h5 class="text-muted">{{track.artists[0].name}}</h5>
+            <button class="mt-3 btn following-button " (click)="goToSpotify(track.external_urls.spotify)">Listen on
+                Spotify</button>
         </div>
     </div>
 
@@ -17,47 +18,47 @@
                 <tbody>
                     <tr>
                         <td>
-                            <p class="title">4:14</p>
+                            <p class="title">{{trackFeatures.duration_ms}}</p>
                             <p class="helper">Duration</p>
                         </td>
                         <td>
-                            <p class="title">Major</p>
-                            <p class="helper">Modality</p>
+                            <p class="title">{{trackFeatures.mode}}</p>
+                            <p class="helper">Mode</p>
                         </td>
                         <td>
-                            <p class="title">4</p>
-                            <p class="helper">Time Signature</p>
+                            <p class="title">{{trackFeatures.acousticness}}</p>
+                            <p class="helper">acousticness</p>
                         </td>
                         <td>
-                            <p class="title">94</p>
+                            <p class="title">{{trackFeatures.tempo}}</p>
                             <p class="helper">Tempo - BPM</p>
                         </td>
                         <td>
-                            <p class="title">800</p>
-                            <p class="helper">Segments</p>
+                            <p class="title">{{trackFeatures.valence}}</p>
+                            <p class="helper">valence</p>
                         </td>
 
                     </tr>
                     <tr>
 
                         <td>
-                            <p class="title">Gb</p>
+                            <p class="title">{{trackFeatures.key}}</p>
                             <p class="helper">Key</p>
                         </td>
                         <td>
-                            <p class="title">99</p>
-                            <p class="helper">Bars</p>
+                            <p class="title">{{trackFeatures.loudness}}</p>
+                            <p class="helper">loudness</p>
                         </td>
                         <td>
-                            <p class="title">394</p>
-                            <p class="helper">Beats</p>
+                            <p class="title">{{trackFeatures.energy}}</p>
+                            <p class="helper">energy</p>
                         </td>
                         <td>
-                            <p class="title">7</p>
-                            <p class="helper">Sections</p>
+                            <p class="title">{{trackFeatures.danceability}}</p>
+                            <p class="helper">danceability</p>
                         </td>
                         <td>
-                            <p class="title">20%</p>
+                            <p class="title">{{track.popularity}}%</p>
                             <p class="helper">Popularity</p>
                         </td>
 
@@ -69,10 +70,10 @@
         </div>
     </div>
 
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-md-12 text-center">
             <button class="mt-3 btn following-button ">Listen on Spotify</button>
         </div>
-    </div>
+    </div> -->
 
 </div>

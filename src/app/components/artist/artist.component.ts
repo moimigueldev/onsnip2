@@ -20,7 +20,6 @@ export class ArtistComponent implements OnInit {
     this.artistSub = this.artistsService.getArtist().subscribe(res => {
       this.artist = res['artist']
       this.isFollowing = JSON.parse(res['following'])[0]
-      console.log("following", this.artist)
     })
   }
 
