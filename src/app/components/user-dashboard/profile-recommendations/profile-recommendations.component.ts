@@ -13,23 +13,31 @@ export class ProfileRecommendationsComponent implements OnInit {
   newReleasesSubscription: Subscription;
   newReleases: any;
   featuredPlaylist: any;
+  topArtists: any;
 
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
     this.newReleasesSubscription = this.userService.getUserDashboard().subscribe(res => {
       this.newReleases = res['newReleases'].albums
       this.featuredPlaylist = res['featuredPlaylist']
-      console.log('featured', this.featuredPlaylist)
+      this.topArtists = res['topArtists']
+      console.log('res', this.topArtists)
+
     })
   }
 
   goToAlbum(id) {
     this.router.navigate([`/album/${id}`])
+  }
+
+  goToArtist(id) {
+    this.router.navigate([`/artist/${id}`])
+
   }
 
 

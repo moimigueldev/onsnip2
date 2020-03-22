@@ -94,7 +94,11 @@
 
     img {
       // display: inline-block;
-      height: 88px;
+      display: inline-block;
+      max-height: 88px;
+      max-width: 88px;
+      min-width: 88px;
+      cursor: pointer;
     }
 
     .overlay {

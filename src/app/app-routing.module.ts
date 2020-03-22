@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'recent', component: RecentComponent },
   { path: 'favoriteartists', component: FavoriteArtistComponent },
   { path: 'playlist', component: PlaylistComponent },
-  { path: 'artist', component: ArtistComponent },
+  { path: 'artist/:id', component: ArtistComponent },
   { path: 'track', component: TrackComponent },
   { path: 'redirect', component: RedirectComponent },
   { path: 'album/:id', component: PlaylistIdComponent },
