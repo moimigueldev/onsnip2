@@ -6,8 +6,11 @@
 
 .album-info {
   text-align: center;
-  padding-left: 70px;
-  //   border: 1px solid yellow;
+  // border: 1px solid yellow;
+}
+
+.song-list {
+  // border: 1px solid blue;
 }
 
 .img {
@@ -46,7 +49,8 @@
 
 .song-list {
   // border: 1px solid orange;
-  margin-top: 40px;
+  // margin-top: 40px;
+  margin-bottom: 40px;
 
   .img-container {
     display: inline-block;
@@ -97,6 +101,7 @@
       margin-bottom: 0px;
       border-bottom: 2px solid white;
       display: inline-block;
+      cursor: pointer;
     }
 
     .text-muted {

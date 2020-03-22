@@ -19,7 +19,7 @@ export class PlaylistIdComponent implements OnInit {
   ngOnInit() {
     this.albumSub = this.playlistService.getPlaylist().subscribe(res => {
       this.album = res;
-      console.log('res', res)
+      console.log('res', this.album.tracks.items)
 
     })
   }
