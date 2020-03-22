@@ -57,7 +57,7 @@
         <div class="col-md-6 artist">
             <div class="d-flex flex-row justify-content-between mt-3 mb-3">
                 <h5 class="recommended-header">{{featuredPlaylist.message}}</h5>
-                <button class="btn view-all-button">View All</button>
+                <!-- <button class="btn view-all-button">View All</button> -->
             </div>
 
             <div class="artist-list" *ngFor="let pl of featuredPlaylist.playlists.items">
@@ -77,7 +77,7 @@
         <div class="col-md-6 tracks">
             <div class="d-flex flex-row justify-content-between mt-3 mb-3">
                 <h5 class="recommended-header">New Releases</h5>
-                <button class="btn view-all-button">View All</button>
+                <!-- <button class="btn view-all-button" (click)="viewAllReleases()">View All</button> -->
             </div>
 
             <div class="song-list d-flex flex-row " *ngFor="let songs of newReleases.items">

@@ -29,7 +29,6 @@ export class PlaylistService {
   getPlaylist() {
     const token = this.cookieService.get('access-token')
     this.id = this.route.children[0].params['_value'].id
-    console.log('this is the id', this.id)
     return this.http.post(urlRoutes['playlistId'], { id: this.id, token })
   }
 

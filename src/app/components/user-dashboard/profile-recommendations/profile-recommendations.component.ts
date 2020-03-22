@@ -24,14 +24,15 @@ export class ProfileRecommendationsComponent implements OnInit {
     this.newReleasesSubscription = this.userService.getUserDashboard().subscribe(res => {
       this.newReleases = res['newReleases'].albums
       this.featuredPlaylist = res['featuredPlaylist']
-      console.log('pl', this.newReleases)
+      console.log('featured', this.featuredPlaylist)
     })
   }
 
   goToAlbum(id) {
-    console.log('clicked', id)
     this.router.navigate([`/album/${id}`])
   }
+
+
 
 
   ngOnDestroy() {
