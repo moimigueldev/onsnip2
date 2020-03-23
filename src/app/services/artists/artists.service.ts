@@ -31,9 +31,19 @@ export class ArtistsService {
   }
 
   unfollowArtist(): void {
-
     const token = this.cookieService.get('access-token')
     const id = this.route.children[0].params['_value'].id
     this.http.post(urlRoutes['unfollow-artist'], { id, token })
+  }
+
+  getTopArtists(time?: string) {
+
+    const token = this.cookieService.get('access-token')
+    const id = this.route.children[0].params['_value'].id
+
+    time = time !== undefined ? time : 'long_term';
+    console.log('time', time)
+
+    return this.http.post(urlRoutes['top-artists'], { id, token, time })
   }
 }

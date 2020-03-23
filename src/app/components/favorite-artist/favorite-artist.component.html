@@ -2,15 +2,15 @@
 
 
 
-<div class="container">
+<div class="container" *ngIf="artists">
     <div class="row">
         <div class="col-md-12">
             <div class="d-flex flex-row justify-content-between ">
                 <h4 class="favorite-header">Favorite Artists</h4>
                 <div class="time-options">
-                    <p>All Time</p>
-                    <p class="active">Past 3 Months</p>
-                    <p>Past 4 Months</p>
+                    <p [ngClass]="{active: activeClass.allTime}" (click)="getAllTime()">All Time</p>
+                    <p [ngClass]="{active: activeClass.sixMonths}" (click)="getSixMonths()">Past 6 Months</p>
+                    <p [ngClass]="{active: activeClass.threeWeeks}" (click)="getThreeWeeks()">Past 3 Weeks</p>
                 </div>
 
             </div>
@@ -25,67 +25,15 @@
 
     <div class="row artist-row">
 
-        <div class="col-md-3 col-xs-6 artist-column">
-            <div class="img-container">
-                <img src="https://i.scdn.co/image/b1414e865a16bc0080085ee1901d0bfd19f83fcb" alt=""
-                    class="rounded-circle">
-                <div class="overlay">
+        <div class="col-md-3 col-xs-6 artist-column" *ngFor="let artist of artists.items">
+            <div class="img-container" *ngIf="artist.images.length">
+                <img src="{{artist.images[0].url}}" alt="" class="rounded-circle">
+                <div class="overlay" (click)="goToArtist(artist.id)">
                     <i class="fa fa-info-circle "></i>
                 </div>
             </div>
-            <p class="artist-name">Kanye West</p>
+            <p class="artist-name" *ngIf="artist.images.length" (click)="goToArtist(artist.id)">{{artist.name}}</p>
         </div>
-        <div class="col-md-3 col-xs-6 artist-column">
-            <div class="img-container">
-                <img src="https://i.scdn.co/image/b1414e865a16bc0080085ee1901d0bfd19f83fcb" alt=""
-                    class="rounded-circle">
-                <div class="overlay">
-                    <i class="fa fa-info-circle "></i>
-                </div>
-            </div>
-            <p class="artist-name">Kanye West</p>
-        </div>
-        <div class="col-md-3 col-xs-6 artist-column">
-            <div class="img-container">
-                <img src="https://i.scdn.co/image/b1414e865a16bc0080085ee1901d0bfd19f83fcb" alt=""
-                    class="rounded-circle">
-                <div class="overlay">
-                    <i class="fa fa-info-circle "></i>
-                </div>
-            </div>
-            <p class="artist-name">Kanye West</p>
-        </div>
-        <div class="col-md-3 col-xs-6 artist-column">
-            <div class="img-container">
-                <img src="https://i.scdn.co/image/b1414e865a16bc0080085ee1901d0bfd19f83fcb" alt=""
-                    class="rounded-circle">
-                <div class="overlay">
-                    <i class="fa fa-info-circle "></i>
-                </div>
-            </div>
-            <p class="artist-name">Kanye West</p>
-        </div>
-        <div class="col-md-3 col-xs-6 artist-column">
-            <div class="img-container">
-                <img src="https://i.scdn.co/image/b1414e865a16bc0080085ee1901d0bfd19f83fcb" alt=""
-                    class="rounded-circle">
-                <div class="overlay">
-                    <i class="fa fa-info-circle "></i>
-                </div>
-            </div>
-            <p class="artist-name">Kanye West</p>
-        </div>
-        <div class="col-md-3 col-xs-6 artist-column">
-            <div class="img-container">
-                <img src="https://i.scdn.co/image/b1414e865a16bc0080085ee1901d0bfd19f83fcb" alt=""
-                    class="rounded-circle">
-                <div class="overlay">
-                    <i class="fa fa-info-circle "></i>
-                </div>
-            </div>
-            <p class="artist-name">Kanye West</p>
-        </div>
-
 
     </div>
 
