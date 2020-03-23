@@ -39,6 +39,11 @@ export class ProfileRecommendationsComponent implements OnInit {
 
   }
 
+  viewAllArtist() {
+    this.router.navigate([`/favoriteartists`])
+
+  }
+
 
 
 

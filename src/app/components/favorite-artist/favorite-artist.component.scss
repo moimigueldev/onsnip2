@@ -137,9 +137,11 @@ img:hover {
     }
   }
 
-  img {
-    // display: inline-block;
-    height: 130px;
+  .img-container {
+    img {
+      height: 162px;
+      width: 162px;
+    }
   }
 
   .artist-name {
