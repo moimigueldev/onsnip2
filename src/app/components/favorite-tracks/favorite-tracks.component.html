@@ -6,9 +6,9 @@
             <div class="d-flex flex-row justify-content-between ">
                 <h4 class="favorite-header">Favorite Tracks</h4>
                 <div class="time-options">
-                    <p>All Time</p>
-                    <p class="active">Past 3 Months</p>
-                    <p>Past 4 Months</p>
+                    <p [ngClass]="{active: activeClass.allTime}" (click)="getAllTime()">All Time</p>
+                    <p [ngClass]="{active: activeClass.sixMonths}" (click)="getSixMonths()">Past 3 Months</p>
+                    <p [ngClass]="{active: activeClass.threeWeeks}" (click)="getThreeWeeks()">Past 4 Months</p>
                 </div>
 
             </div>
