@@ -33,7 +33,13 @@ export class TrackService {
 
   }
 
+  getRecentTracks() {
+    const token = this.cookieService.get('access-token')
+    return this.http.post(urlRoutes['recent-tracks'], { token })
+  }
+
   convertToMins(arr) {
+
 
     let trackArr = arr.items;
 
@@ -41,6 +47,20 @@ export class TrackService {
       const minutes = moment.duration(el.duration_ms)['_data'].minutes
       const seconds = moment.duration(el.duration_ms)['_data'].seconds
       el.duration_ms = `${minutes}:${seconds}`
+    });
+    arr.items = trackArr
+    return arr
+  }
+
+  convertRecentTrackstoMins(arr) {
+
+
+    let trackArr = arr.items;
+
+    trackArr.forEach(el => {
+      const minutes = moment.duration(el.track.duration_ms)['_data'].minutes
+      const seconds = moment.duration(el.track.duration_ms)['_data'].seconds
+      el.track.duration_ms = `${minutes}:${seconds}`
     });
     arr.items = trackArr
     return arr

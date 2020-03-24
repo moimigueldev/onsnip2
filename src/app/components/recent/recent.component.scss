@@ -44,6 +44,21 @@
   .img-container {
     display: inline-block;
     position: relative;
+
+    .fa-sliders {
+      display: none;
+    }
+  }
+
+  .img-container:hover {
+    .fa-music {
+      display: none;
+    }
+
+    .fa-sliders {
+      display: block;
+      cursor: pointer;
+    }
   }
 
   img {
@@ -112,6 +127,10 @@
 @media only screen and (max-device-width: 927px) {
   .favorite-header {
     font-size: 16px;
+  }
+
+  .container {
+    margin-top: 40px;
   }
 
   .time-options {
