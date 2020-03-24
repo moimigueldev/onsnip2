@@ -25,7 +25,7 @@ export class PlaylistIdComponent implements OnInit {
     this.albumSub = this.playlistService.getPlaylist().subscribe(res => {
       this.album = res;
       this.album = this.playlistService.convertToMins(this.album)
-      console.log('albun', this.album)
+
     })
   }
 

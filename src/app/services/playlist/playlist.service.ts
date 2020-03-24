@@ -41,8 +41,6 @@ export class PlaylistService {
       el.duration_ms = `${minutes}:${seconds}`
     });
     arr.tracks.items = trackArr
-
-
     return arr
 
   }

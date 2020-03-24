@@ -1,33 +1,32 @@
 <app-navbar></app-navbar>
 
-<div class="container">
+<div class="container" *ngIf="tracksList">
     <div class="row">
         <div class="col-md-12">
             <div class="d-flex flex-row justify-content-between ">
                 <h4 class="favorite-header">Favorite Tracks</h4>
                 <div class="time-options">
                     <p [ngClass]="{active: activeClass.allTime}" (click)="getAllTime()">All Time</p>
-                    <p [ngClass]="{active: activeClass.sixMonths}" (click)="getSixMonths()">Past 3 Months</p>
-                    <p [ngClass]="{active: activeClass.threeWeeks}" (click)="getThreeWeeks()">Past 4 Months</p>
+                    <p [ngClass]="{active: activeClass.sixMonths}" (click)="getSixMonths()">Past 6 Months</p>
+                    <p [ngClass]="{active: activeClass.threeWeeks}" (click)="getThreeWeeks()">Past 3 Weeks</p>
                 </div>
 
             </div>
 
 
-            <div class="song-list d-flex flex-row tracks">
+            <div class="song-list d-flex flex-row tracks" *ngFor="let song of tracksList.items">
                 <div class="img-container">
-                    <img src="https://i.scdn.co/image/ac5cb571c194ca5a942b8096618217839b901a76" alt="" class="">
-                    <div class="overlay">
-                        <i class="fa fa-info-circle "></i>
-                    </div>
+                    <i class="fa fa-music"></i>
+                    <i class="fa fa-sliders " (click)="goToTrack(song.id)"></i>
                 </div>
 
+
+
                 <div class="song-info mt-md-auto mt-sm-0 mt-xs-0">
-                    <p class="song-title">These Walls</p>
-                    <p class="text-muted">Kendrick Lamar - Section 80Kendrick Lamar
-                        80</p>
+                    <p class="song-title" (click)="goToTrack(song.id)" style="cursor: pointer;">{{song.name}}</p>
+                    <p class="text-muted">{{song.artists[0].name}} </p>
                 </div>
-                <p class="mt-auto ml-auto text-muted" style="font-weight: 500;">5:90</p>
+                <p class="mt-auto ml-auto text-muted" style="font-weight: 500;">{{song.duration_ms}}</p>
 
             </div>
 

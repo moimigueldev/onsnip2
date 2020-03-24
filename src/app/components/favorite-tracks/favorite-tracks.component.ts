@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { TrackService } from 'src/app/services/track/track.service';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import { PlaylistService } from 'src/app/services/playlist/playlist.service';
 
 @Component({
   selector: 'app-favorite-tracks',
@@ -13,38 +17,67 @@ export class FavoriteTracksComponent implements OnInit {
     threeWeeks: false
   }
 
-  constructor() { }
+  tracksList: any;
+  longTermSub: Subscription;
+  mediumTermSub: Subscription;
+  shortTermSub: Subscription;
+  initialSub: Subscription;
+
+  constructor(
+    private tracksService: TrackService,
+    private router: Router,
+    private playlistService: PlaylistService
+  ) { }
 
   ngOnInit() {
+    this.initialSub = this.tracksService.getTopTracks().subscribe(res => {
+      this.tracksList = res['tracks']
+      this.tracksList = this.tracksService.convertToMins(this.tracksList)
+    })
   }
 
   getAllTime(): void {
     this.activeClass.allTime = true;
     this.activeClass.sixMonths = false;
     this.activeClass.threeWeeks = false;
-    // this.longTermSub = this.artistService.getTopArtists('long_term').subscribe(res => {
-    //   this.artists = res
-    // })
+    this.longTermSub = this.tracksService.getTopTracks().subscribe(res => {
+      this.tracksList = res['tracks']
+      this.tracksList = this.tracksService.convertToMins(this.tracksList)
+
+    })
   }
 
   getSixMonths(): void {
     this.activeClass.allTime = false;
     this.activeClass.sixMonths = true;
     this.activeClass.threeWeeks = false;
-    // this.mediumTermSub = this.artistService.getTopArtists('medium_term').subscribe(res => {
-    //   this.artists = res
-    // })
+    this.mediumTermSub = this.tracksService.getTopTracks('medium_term').subscribe(res => {
+      this.tracksList = res['tracks']
+      this.tracksList = this.tracksService.convertToMins(this.tracksList)
+
+    })
 
   }
   getThreeWeeks(): void {
     this.activeClass.allTime = false;
     this.activeClass.sixMonths = false;
     this.activeClass.threeWeeks = true;
-    // this.shortTermSub = this.artistService.getTopArtists('short_term').subscribe(res => {
+    this.shortTermSub = this.tracksService.getTopTracks('short_term').subscribe(res => {
+      this.tracksList = res['tracks']
+      this.tracksList = this.tracksService.convertToMins(this.tracksList)
 
-    //   this.artists = res
-    // })
+    })
+  }
 
+  goToTrack(id: string) {
+    this.router.navigate([`/track/${id}`])
+  }
+
+  ngOnDestroy() {
+    this.initialSub ? this.initialSub.unsubscribe() : null;
+    this.longTermSub ? this.longTermSub.unsubscribe() : null;
+    this.mediumTermSub ? this.mediumTermSub.unsubscribe() : null;
+    this.shortTermSub ? this.shortTermSub.unsubscribe() : null;
   }
 
 }
