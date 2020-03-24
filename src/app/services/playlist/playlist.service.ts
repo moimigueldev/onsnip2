@@ -44,4 +44,35 @@ export class PlaylistService {
     return arr
 
   }
+
+  convertUserPlaylistToMins(arr) {
+
+    let trackArr = arr.tracks.items;
+
+
+    trackArr.forEach(el => {
+      const minutes = moment.duration(el.track.duration_ms)['_data'].minutes
+      const seconds = moment.duration(el.track.duration_ms)['_data'].seconds
+      el.track.duration_ms = `${minutes}:${seconds}`
+    });
+    arr.tracks.items = trackArr
+
+    return arr
+
+  }
+
+  getAllPlaylist() {
+    const token = this.cookieService.get('access-token')
+
+    return this.http.post(urlRoutes['all-playlist'], { token })
+  }
+
+  getUserPlaylist() {
+    console.log('getting t')
+    const token = this.cookieService.get('access-token')
+    this.id = this.route.children[0].params['_value'].id
+    return this.http.post(urlRoutes['user-playlist'], { id: this.id, token })
+
+
+  }
 }

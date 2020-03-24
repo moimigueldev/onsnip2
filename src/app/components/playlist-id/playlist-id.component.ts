@@ -24,6 +24,7 @@ export class PlaylistIdComponent implements OnInit {
   ngOnInit() {
     this.albumSub = this.playlistService.getPlaylist().subscribe(res => {
       this.album = res;
+      console.log('album', this.album)
       this.album = this.playlistService.convertToMins(this.album)
 
     })

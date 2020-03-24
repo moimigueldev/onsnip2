@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PlaylistService } from 'src/app/services/playlist/playlist.service';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-playlist',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaylistComponent implements OnInit {
 
-  constructor() { }
+  playlistSub: Subscription;
+  playlist: any;
+
+  constructor(
+    private playlistService: PlaylistService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.playlistSub = this.playlistService.getAllPlaylist().subscribe(res => {
+      this.playlist = res['playlist']
+      console.log('res', this.playlist)
+    })
+  }
+
+  goToPlaylist(id: string) {
+    console.log('id', id)
+    this.router.navigate([`/album/${id}`])
+  }
+
+  ngOnDestroy() {
+    this.playlistSub ? this.playlistSub.unsubscribe() : null;
   }
 
 }

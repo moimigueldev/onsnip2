@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 
-<div class="container">
+<div class="container" *ngIf="playlist">
     <div class="row">
         <div class="col-md-12">
             <div class="d-flex flex-row justify-content-between ">
@@ -24,13 +24,13 @@
 
     <div class="row artist-row">
 
-        <div class="col-md-3 col-xs-6 artist-column">
+        <div class="col-md-3 col-xs-6 artist-column" *ngFor="let pl of playlist.items">
             <div class="img-container d-block">
-                <img src="https://i.scdn.co/image/ab67706f000000025e280eb227e95d7198150d16" alt="">
+                <img src="{{pl.images[0].url}}" alt="" (click)="goToPlaylist(pl.id)">
 
             </div>
-            <p class="artist-name ">khj</p>
-            <p class="text-muted">90 Songs</p>
+            <p class="artist-name " (click)="goToPlaylist(pl.id)">{{pl.name}}</p>
+            <p class="text-muted">{{pl.tracks.total}} </p>
         </div>
 
 

@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid" *ngIf="playlist">
+    <div class="row ">
+
+        <div class="col-md-4 album-info px-0 ">
+            <div class="img ">
+                <img src="{{playlist.images[0].url}}" class="album-image px-auto ml-md-5 ml-sm-0" alt="">
+            </div>
+
+            <h1 class="album-header mt-md-3 ml-md-5 ">{{playlist.name}}</h1>
+            <p class="text-muted album-artist ml-5">{{playlist.owner.display_name}}</p>
+            <p class="ml-5 track-total">Tracks {{playlist.tracks.total}}</p>
+            <button class=" btn following-button ml-5 "
+                (click)="listenOnSpotifyButton(playlist.external_urls.spotify)">Listen On Spotify</button>
+        </div>
+
+        <div class="col-md-6 px-0 pr-5 list ">
+
+            <div class="song-list d-flex flex-row tracks" *ngFor="let track of playlist.tracks.items">
+
+                <div class="img-container">
+                    <i class="fa fa-music"></i>
+                    <i class="fa fa-sliders " (click)="goToTrack(track.track.id)"></i>
+                </div>
+
+
+                <div class="song-info mt-md-auto mt-sm-0 mt-xs-0">
+                    <p class="song-title" (click)="goToTrack(track.track.id)">{{track.track.name}}</p>
+                    <p class="text-muted">{{track.track.artists[0].name}}</p>
+                </div>
+                <p class="mt-auto ml-auto text-muted" style="font-weight: 500;">{{track.track.duration_ms}}</p>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
