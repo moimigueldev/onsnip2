@@ -3,7 +3,12 @@
         <div @fade class="col-md-12 col-centered text-center welcome-text">
             <h1>OnSnip Music</h1>
             <!-- <h5>Your Music. Your Stats.</h5> -->
-            <button class="btn btn-outline-secondary" (click)="loginUser()">Login to Spotify</button>
+            <button class="btn btn-outline-secondary" (click)="loginUser()" *ngIf="!loading">Login to Spotify</button>
+            <button class="btn btn-outline-secondary" id="loading-button" *ngIf="loading">
+
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+            </button>
         </div>
     </div>
 </div>

@@ -18,7 +18,7 @@ import { OauthLoginService } from 'src/app/services/login/oauth-login.service';
 })
 export class WelcomeComponent implements OnInit {
 
-
+  loading = false;
 
   constructor(
     private loginService: OauthLoginService
@@ -29,6 +29,7 @@ export class WelcomeComponent implements OnInit {
   }
 
   loginUser() {
+    this.loading = !this.loading
     this.loginService.fetchUser()
   }
 
