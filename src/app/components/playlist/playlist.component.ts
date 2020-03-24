@@ -27,7 +27,7 @@ export class PlaylistComponent implements OnInit {
 
   goToPlaylist(id: string) {
     console.log('id', id)
-    this.router.navigate([`/album/${id}`])
+    this.router.navigate([`/user-playlist/${id}`])
   }
 
   ngOnDestroy() {
