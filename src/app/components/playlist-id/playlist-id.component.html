@@ -18,10 +18,8 @@
 
             <div class="song-list d-flex flex-row tracks" *ngFor="let track of album.tracks.items">
                 <div class="img-container">
-                    <img src="{{album.images[0].url}}" alt="" class="" (click)="goToTrack(track.id)">
-                    <div class="overlay" style="cursor: pointer;">
-                        <i class="fa fa-info-circle "></i>
-                    </div>
+                    <i class="fa fa-music"></i>
+                    <i class="fa fa-sliders " (click)="goToTrack(track.track.id)"></i>
                 </div>
 
                 <div class="song-info mt-md-auto mt-sm-0 mt-xs-0">

@@ -62,8 +62,21 @@
   .img-container {
     display: inline-block;
     position: relative;
-  }
 
+    .fa-sliders {
+      display: none;
+    }
+  }
+  .img-container:hover {
+    .fa-music {
+      display: none;
+    }
+
+    .fa-sliders {
+      display: block;
+      cursor: pointer;
+    }
+  }
   img {
     // display: inline-block;
     height: 70px;
