@@ -6,3 +6,33 @@ body {
   // font-weight: 900;
   color: white;
 }
+
+.loading-dots {
+}
+
+.loading-container {
+  margin-top: 17% !important;
+  .loader {
+    text-align: center;
+
+    .spinner-grow {
+      height: 66px;
+      width: 66px;
+    }
+  }
+}
+
+//IPHONE X
+@media only screen and (max-device-width: 927px) {
+  .loading-container {
+    margin-top: 62% !important;
+    .loader {
+      text-align: center;
+
+      .spinner-grow {
+        height: 32px;
+        width: 32px;
+      }
+    }
+  }
+}
