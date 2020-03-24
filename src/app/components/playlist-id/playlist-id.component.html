@@ -1,5 +1,8 @@
 <app-navbar></app-navbar>
 
+<app-loader *ngIf="!album"></app-loader>
+
+
 <div class="container-fluid" *ngIf="album">
     <div class="row ">
 

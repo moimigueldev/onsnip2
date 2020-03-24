@@ -1,5 +1,8 @@
 <app-navbar></app-navbar>
 
+<app-loader *ngIf="!playlist"></app-loader>
+
+
 <div class="container-fluid" *ngIf="playlist">
     <div class="row ">
 

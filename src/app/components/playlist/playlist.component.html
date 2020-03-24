@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
 
+<app-loader *ngIf="!playlist"></app-loader>
+
 
 <div class="container" *ngIf="playlist">
     <div class="row">

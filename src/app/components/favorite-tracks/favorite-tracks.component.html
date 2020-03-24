@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
 
+<app-loader *ngIf="!tracksList"></app-loader>
+
 <div class="container" *ngIf="tracksList">
     <div class="row">
         <div class="col-md-12">
