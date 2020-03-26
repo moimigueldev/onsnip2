@@ -4,6 +4,7 @@ import { urlRoutes } from '../../../assets/secret'
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from '../user/user.service';
+import { CookieTokenService } from '../cookie/cookie-token.service';
 
 
 @Injectable({
@@ -17,7 +18,8 @@ export class OauthLoginService {
     private http: HttpClient,
     private router: Router,
     private cookieService: CookieService,
-    private userService: UserService
+    private userService: UserService,
+    private cookieTokenService: CookieTokenService
 
   ) {
 
@@ -43,20 +45,18 @@ export class OauthLoginService {
       }
     }
 
-    this.userService.getUserDashboard()
+    this.userService.getUserDashboard();
     // this.getUserDashboard();
 
   }// end of checkForAccesToken
 
   getUserDashboard() {
+    // console.log('getting dashboard')
     const token = this.cookieService.get('access-token')
     return this.http.post(urlRoutes['user'], { token });
 
   }
 
-  isCookieAlive() {
-    console.log('checking if cookie is alive', this.cookieService.get('access-token'))
-  }
 
 
 }

@@ -22,7 +22,7 @@ export class UserPlaylistComponent implements OnInit {
     this.playlistSub = this.playlistService.getUserPlaylist().subscribe(res => {
 
       this.playlist = this.playlistService.convertUserPlaylistToMins(res['playlist'])
-      console.log('pal', this.playlist)
+
     })
   }
 

@@ -27,7 +27,6 @@ export class DashboardComponent implements OnInit {
     this.loginService.checkForAccesToken();
 
     this.userSub = this.userService.getUserDashboard().subscribe(res => {
-      console.log('res', res)
       this.profile = true
 
     })

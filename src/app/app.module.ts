@@ -12,6 +12,7 @@ import { UserService } from './services/user/user.service';
 import { PlaylistService } from './services/playlist/playlist.service';
 import { ArtistsService } from './services/artists/artists.service';
 import { TrackService } from './services/track/track.service';
+import { CookieTokenService } from './services/cookie/cookie-token.service';
 
 
 
@@ -28,7 +29,7 @@ import { TrackService } from './services/track/track.service';
 
     // RouterModule
   ],
-  providers: [CookieService, OauthLoginService, UserService, PlaylistService, ArtistsService, TrackService],
+  providers: [CookieService, OauthLoginService, UserService, PlaylistService, ArtistsService, TrackService, CookieTokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

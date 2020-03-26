@@ -8,7 +8,6 @@ import { urlRoutes } from '../../../assets/secret'
   providedIn: 'root'
 })
 export class ArtistsService {
-
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
@@ -42,7 +41,6 @@ export class ArtistsService {
     const id = this.route.children[0].params['_value'].id
 
     time = time !== undefined ? time : 'long_term';
-    console.log('time', time)
 
     return this.http.post(urlRoutes['top-artists'], { id, token, time })
   }
