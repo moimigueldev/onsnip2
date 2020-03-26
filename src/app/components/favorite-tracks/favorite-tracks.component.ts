@@ -37,6 +37,7 @@ export class FavoriteTracksComponent implements OnInit {
   }
 
   getAllTime(): void {
+    this.tracksList = null
     this.activeClass.allTime = true;
     this.activeClass.sixMonths = false;
     this.activeClass.threeWeeks = false;
@@ -48,6 +49,7 @@ export class FavoriteTracksComponent implements OnInit {
   }
 
   getSixMonths(): void {
+    this.tracksList = null
     this.activeClass.allTime = false;
     this.activeClass.sixMonths = true;
     this.activeClass.threeWeeks = false;
@@ -59,6 +61,7 @@ export class FavoriteTracksComponent implements OnInit {
 
   }
   getThreeWeeks(): void {
+    this.tracksList = null
     this.activeClass.allTime = false;
     this.activeClass.sixMonths = false;
     this.activeClass.threeWeeks = true;

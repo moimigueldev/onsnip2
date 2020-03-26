@@ -19,7 +19,6 @@ export class PlaylistService {
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
-    private cookieService: CookieService,
     private cookieTokenService: CookieTokenService
   ) { }
 
