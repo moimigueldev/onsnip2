@@ -9,7 +9,8 @@
             </div>
 
             <div class="artist-list" *ngFor="let artist of topArtists.items">
-                <img src="{{artist.images[0].url}}" alt="" class="rounded-circle" (click)="goToArtist(artist.id)">
+                <img src="{{artist.images[0].url}}" alt="" class="rounded-circle" (click)="goToArtist(artist.id)"
+                    style="cursor: pointer;">
 
                 <h5 (click)="goToArtist(artist.id)">{{artist.name}}</h5>
 

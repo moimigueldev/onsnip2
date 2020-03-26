@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+<app-loader *ngIf="!artist"></app-loader>
 <div class="container " *ngIf="artist">
     <div class="row mt-4">
         <div class="col-md-12 profile-content">
