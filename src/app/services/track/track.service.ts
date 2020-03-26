@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { urlRoutes } from '../../../assets/secret'
 import { CookieService } from 'ngx-cookie-service';
 import * as moment from 'moment';
+import { CookieTokenService } from '../cookie/cookie-token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,19 +14,19 @@ export class TrackService {
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
-    private cookieService: CookieService
+    private cookieTokenService: CookieTokenService
   ) { }
 
   getTrack() {
 
-    const token = this.cookieService.get('access-token')
+    const token = this.cookieTokenService.getCookie()
     const id = this.route.children[0].params['_value'].id
     return this.http.post(urlRoutes['tracks'], { id, token })
   }
 
   getTopTracks(time?: string) {
 
-    const token = this.cookieService.get('access-token')
+    const token = this.cookieTokenService.getCookie()
     const id = this.route.children[0].params['_value'].id
 
     time = time !== undefined ? time : 'long_term';
@@ -34,7 +35,7 @@ export class TrackService {
   }
 
   getRecentTracks() {
-    const token = this.cookieService.get('access-token')
+    const token = this.cookieTokenService.getCookie()
     return this.http.post(urlRoutes['recent-tracks'], { token })
   }
 

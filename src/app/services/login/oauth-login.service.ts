@@ -41,7 +41,7 @@ export class OauthLoginService {
       this.token = hashString.slice(start, end)
 
       if (this.token.length) {
-        this.cookieService.set('access-token', this.token, 3500)
+        this.cookieTokenService.createCookie(this.token)
       }
     }
 

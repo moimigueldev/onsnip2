@@ -18,12 +18,12 @@ export class CookieTokenService {
 
   }
 
-  doesCookieExist() {
+  doesCookieExist(): boolean {
     return this.cookieService.check('access-token')
   }
 
-  createCookie() {
-
+  createCookie(token: string): void {
+    this.cookieService.set('access-token', token, 3500)
   }
 
 }

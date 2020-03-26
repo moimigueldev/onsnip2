@@ -13,7 +13,6 @@ import { CookieTokenService } from '../cookie/cookie-token.service';
 export class UserService {
 
   constructor(
-    private cookieService: CookieService,
     private http: HttpClient,
     private cookieTokenService: CookieTokenService
   ) { }
@@ -21,8 +20,6 @@ export class UserService {
 
   getUserDashboard() {
 
-
-    // const otherToken = this.cookieTokenService.getCookie();
     const token = this.cookieTokenService.getCookie();
 
     return this.http.post(urlRoutes['user'], { token });

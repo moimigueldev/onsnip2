@@ -5,6 +5,7 @@ import { urlRoutes } from '../../../assets/secret'
 import { CookieService } from 'ngx-cookie-service';
 
 import * as moment from 'moment';
+import { CookieTokenService } from '../cookie/cookie-token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,8 @@ export class PlaylistService {
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
-    private cookieService: CookieService
-
+    private cookieService: CookieService,
+    private cookieTokenService: CookieTokenService
   ) { }
 
   ngOnInit() {
@@ -27,7 +28,7 @@ export class PlaylistService {
   }
 
   getPlaylist() {
-    const token = this.cookieService.get('access-token')
+    const token = this.cookieTokenService.getCookie()
     this.id = this.route.children[0].params['_value'].id
     return this.http.post(urlRoutes['playlistId'], { id: this.id, token })
   }
@@ -62,14 +63,13 @@ export class PlaylistService {
   }
 
   getAllPlaylist() {
-    const token = this.cookieService.get('access-token')
+    const token = this.cookieTokenService.getCookie()
 
     return this.http.post(urlRoutes['all-playlist'], { token })
   }
 
   getUserPlaylist() {
-    console.log('getting t')
-    const token = this.cookieService.get('access-token')
+    const token = this.cookieTokenService.getCookie()
     this.id = this.route.children[0].params['_value'].id
     return this.http.post(urlRoutes['user-playlist'], { id: this.id, token })
 
