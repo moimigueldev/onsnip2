@@ -39,7 +39,7 @@ export class OauthLoginService {
       this.token = hashString.slice(start, end)
 
       if (this.token.length) {
-        this.cookieService.set('access-token', this.token, 24 * 60 * 60 * 1000)
+        this.cookieService.set('access-token', this.token, 3500)
       }
     }
 
@@ -52,6 +52,10 @@ export class OauthLoginService {
     const token = this.cookieService.get('access-token')
     return this.http.post(urlRoutes['user'], { token });
 
+  }
+
+  isCookieAlive() {
+    console.log('checking if cookie is alive', this.cookieService.get('access-token'))
   }
 
 
