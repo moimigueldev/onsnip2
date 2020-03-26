@@ -24,6 +24,10 @@ body {
 
 //IPHONE X
 @media only screen and (max-device-width: 927px) {
+  .container {
+    margin-left: 0 !important;
+  }
+
   .loading-container {
     margin-top: 62% !important;
     .loader {
@@ -34,5 +38,12 @@ body {
         width: 32px;
       }
     }
+  }
+}
+
+//medium screen
+@media only screen and (max-device-width: 1323px) {
+  .container {
+    margin-left: 261px;
   }
 }
