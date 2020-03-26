@@ -26,4 +26,14 @@ export class CookieTokenService {
     this.cookieService.set('access-token', token, 3500)
   }
 
+  didCookieExpire(res: any) {
+    if (res['err'] !== undefined) {
+      console.log('cookie expired')
+      this.router.navigate(['/'])
+      return true
+    }
+
+    return false
+  }
+
 }

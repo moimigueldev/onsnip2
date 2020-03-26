@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user/user.service';
 import { Subscription } from 'rxjs';
+import { CookieTokenService } from 'src/app/services/cookie/cookie-token.service';
 
 @Component({
   selector: 'app-profile',
@@ -15,13 +16,17 @@ export class ProfileComponent implements OnInit {
   profileSubscription: Subscription;
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private cookieTokenService: CookieTokenService
   ) { }
 
   ngOnInit(): void {
     this.profileSubscription = this.userService.getUserDashboard().subscribe(res => {
-      this.profile = res['profile']
-      this.playlist = res['playlist'].total
+      if (!this.cookieTokenService.didCookieExpire(res)) {
+        this.profile = res['profile']
+        this.playlist = res['playlist'].total
+      }
+
 
     })
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArtistsService } from 'src/app/services/artists/artists.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { CookieTokenService } from 'src/app/services/cookie/cookie-token.service';
 
 @Component({
   selector: 'app-favorite-artist',
@@ -24,12 +25,18 @@ export class FavoriteArtistComponent implements OnInit {
 
   constructor(
     private artistService: ArtistsService,
-    private router: Router
+    private router: Router,
+    private cookieTokenService: CookieTokenService
   ) { }
 
   ngOnInit() {
     this.initialSub = this.artistService.getTopArtists().subscribe(res => {
-      this.artists = res
+
+      if (!this.cookieTokenService.didCookieExpire(res)) {
+        this.artists = res
+      }
+
+
     })
   }
 

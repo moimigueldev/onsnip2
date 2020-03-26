@@ -24,7 +24,6 @@ export class ArtistsService {
   }
 
   followArtist(): void {
-
     const token = this.cookieTokenService.getCookie()
     const id = this.route.children[0].params['_value'].id
     this.http.post(urlRoutes['follow-artist'], { id, token })

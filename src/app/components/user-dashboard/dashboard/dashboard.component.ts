@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OauthLoginService } from 'src/app/services/login/oauth-login.service';
 import { UserService } from 'src/app/services/user/user.service';
 import { Subscription } from 'rxjs';
+import { CookieTokenService } from 'src/app/services/cookie/cookie-token.service';
 
 
 @Component({
@@ -20,14 +21,20 @@ export class DashboardComponent implements OnInit {
   constructor(
 
     private loginService: OauthLoginService,
-    private userService: UserService
+    private userService: UserService,
+    private cookieTokenService: CookieTokenService
   ) { }
 
   ngOnInit() {
     this.loginService.checkForAccesToken();
 
+
     this.userSub = this.userService.getUserDashboard().subscribe(res => {
-      this.profile = true
+
+      if (!this.cookieTokenService.didCookieExpire(res)) {
+        this.profile = true
+      }
+
 
     })
 

@@ -3,6 +3,7 @@ import { TrackService } from 'src/app/services/track/track.service';
 import { Subscription } from 'rxjs';
 import * as moment from 'moment'
 import { ThrowStmt } from '@angular/compiler';
+import { CookieTokenService } from 'src/app/services/cookie/cookie-token.service';
 
 @Component({
   selector: 'app-track',
@@ -15,17 +16,19 @@ export class TrackComponent implements OnInit {
   trackFeatures: any
   trackSub: Subscription;
   constructor(
-    private trackService: TrackService
+    private trackService: TrackService,
+    private cookieTokenService: CookieTokenService
   ) { }
 
   ngOnInit() {
     this.trackSub = this.trackService.getTrack().subscribe(res => {
-      this.track = res['track']
-      this.trackFeatures = res['trackFeatures']
 
-      this.modFeatures()
+      if (!this.cookieTokenService.didCookieExpire(res)) {
+        this.track = res['track']
+        this.trackFeatures = res['trackFeatures']
 
-
+        this.modFeatures()
+      }
 
     })
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from 'src/app/services/playlist/playlist.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { CookieTokenService } from 'src/app/services/cookie/cookie-token.service';
 
 @Component({
   selector: 'app-user-playlist',
@@ -15,13 +16,18 @@ export class UserPlaylistComponent implements OnInit {
 
   constructor(
     private playlistService: PlaylistService,
-    private router: Router
+    private router: Router,
+    private cookieTokenService: CookieTokenService
   ) { }
 
   ngOnInit() {
     this.playlistSub = this.playlistService.getUserPlaylist().subscribe(res => {
 
-      this.playlist = this.playlistService.convertUserPlaylistToMins(res['playlist'])
+      if (!this.cookieTokenService.didCookieExpire(res)) {
+        this.playlist = this.playlistService.convertUserPlaylistToMins(res['playlist'])
+      }
+
+
 
     })
   }

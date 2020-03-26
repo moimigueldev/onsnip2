@@ -3,6 +3,7 @@ import { TrackService } from 'src/app/services/track/track.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { PlaylistService } from 'src/app/services/playlist/playlist.service';
+import { CookieTokenService } from 'src/app/services/cookie/cookie-token.service';
 
 @Component({
   selector: 'app-favorite-tracks',
@@ -26,13 +27,16 @@ export class FavoriteTracksComponent implements OnInit {
   constructor(
     private tracksService: TrackService,
     private router: Router,
-    private playlistService: PlaylistService
+    private cookieTokenService: CookieTokenService
   ) { }
 
   ngOnInit() {
     this.initialSub = this.tracksService.getTopTracks().subscribe(res => {
-      this.tracksList = res['tracks']
-      this.tracksList = this.tracksService.convertToMins(this.tracksList)
+      if (!this.cookieTokenService.didCookieExpire(res)) {
+        this.tracksList = res['tracks']
+        this.tracksList = this.tracksService.convertToMins(this.tracksList)
+      }
+
     })
   }
 
@@ -50,6 +54,7 @@ export class FavoriteTracksComponent implements OnInit {
 
   getSixMonths(): void {
     this.tracksList = null
+
     this.activeClass.allTime = false;
     this.activeClass.sixMonths = true;
     this.activeClass.threeWeeks = false;
@@ -62,6 +67,7 @@ export class FavoriteTracksComponent implements OnInit {
   }
   getThreeWeeks(): void {
     this.tracksList = null
+
     this.activeClass.allTime = false;
     this.activeClass.sixMonths = false;
     this.activeClass.threeWeeks = true;

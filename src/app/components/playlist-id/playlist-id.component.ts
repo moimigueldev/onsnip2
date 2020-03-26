@@ -3,6 +3,7 @@ import { PlaylistService } from 'src/app/services/playlist/playlist.service';
 import { Subscription } from 'rxjs';
 import { TrackService } from 'src/app/services/track/track.service';
 import { Router } from '@angular/router';
+import { CookieTokenService } from 'src/app/services/cookie/cookie-token.service';
 
 
 @Component({
@@ -18,14 +19,19 @@ export class PlaylistIdComponent implements OnInit {
   constructor(
     private playlistService: PlaylistService,
     private trackService: TrackService,
-    private router: Router
+    private router: Router,
+    private cookieTokenService: CookieTokenService
   ) { }
 
   ngOnInit() {
     this.albumSub = this.playlistService.getPlaylist().subscribe(res => {
-      this.album = res;
-      console.log('album', this.album)
-      this.album = this.playlistService.convertToMins(this.album)
+
+      if (!this.cookieTokenService.didCookieExpire(res)) {
+        this.album = res;
+        this.album = this.playlistService.convertToMins(this.album)
+      }
+
+
 
     })
   }

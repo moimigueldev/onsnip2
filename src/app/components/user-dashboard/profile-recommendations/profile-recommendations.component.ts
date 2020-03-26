@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user/user.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { CookieTokenService } from 'src/app/services/cookie/cookie-token.service';
 
 @Component({
   selector: 'app-profile-recommendations',
@@ -19,13 +20,19 @@ export class ProfileRecommendationsComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
+    private cookieTokenService: CookieTokenService
   ) { }
 
   ngOnInit() {
     this.newReleasesSubscription = this.userService.getUserDashboard().subscribe(res => {
-      this.newReleases = res['newReleases'].albums
-      this.featuredPlaylist = res['featuredPlaylist']
-      this.topArtists = res['topArtists']
+
+      if (!this.cookieTokenService.didCookieExpire(res)) {
+        this.newReleases = res['newReleases'].albums
+        this.featuredPlaylist = res['featuredPlaylist']
+        this.topArtists = res['topArtists']
+      }
+
+
 
     })
   }
