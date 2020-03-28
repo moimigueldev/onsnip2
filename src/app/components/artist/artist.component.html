@@ -1,6 +1,10 @@
 <app-navbar></app-navbar>
-<app-loader *ngIf="!artist"></app-loader>
-<div class="container " *ngIf="artist">
+
+<app-error *ngIf='serverError'></app-error>
+
+
+<app-loader *ngIf="!artist && !serverError"></app-loader>
+<div class="container " *ngIf="artist && !serverError">
     <div class="row mt-4">
         <div class="col-md-12 profile-content">
             <img src="{{artist.images[0].url}}" alt="" class="rounded-circle">

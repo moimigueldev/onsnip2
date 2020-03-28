@@ -13,26 +13,26 @@ export class ArtistComponent implements OnInit {
   artistSub: Subscription
   isFollowing: boolean;
 
+  serverError: boolean;
+
   constructor(
     private artistsService: ArtistsService,
-    private cookieTokenService: CookieTokenService
   ) { }
 
   ngOnInit() {
-    this.artistSub = this.artistsService.getArtist().subscribe((res) => {
+    this.serverError = false
 
-      // if (!this.cookieTokenService.didCookieExpire(res)) {
-      //   this.artist = res['artist']
-      //   this.isFollowing = JSON.parse(res['following'])[0]
-      // }
+
+    this.artistSub = this.artistsService.getArtist().subscribe((res) => {
 
       this.artist = res['artist']
       this.isFollowing = JSON.parse(res['following'])[0]
 
-
     }, (error) => {
-      console.log('errr')
+
       console.log("error", error)
+      this.serverError = true
+      console.log('server error', this.serverError)
     })
 
 

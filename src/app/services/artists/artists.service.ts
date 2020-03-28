@@ -29,7 +29,6 @@ export class ArtistsService {
   }
 
   errHandling(err: HttpErrorResponse) {
-    // console.log('error', err)
     return throwError('error')
   }
 

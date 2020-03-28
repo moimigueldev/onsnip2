@@ -6,11 +6,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfileRecommendationsComponent } from './profile-recommendations/profile-recommendations.component';
 import { RouterModule } from '@angular/router';
 import { LoaderComponent } from '../loader/loader.component';
+import { ErrorComponent } from '../error/error.component';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, NavbarComponent, ProfileComponent, ProfileRecommendationsComponent, LoaderComponent],
+  declarations: [DashboardComponent, NavbarComponent, ProfileComponent, ProfileRecommendationsComponent, LoaderComponent, ErrorComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -18,6 +19,6 @@ import { LoaderComponent } from '../loader/loader.component';
 
   ],
   exports: [DashboardComponent, NavbarComponent, RouterModule,
-    LoaderComponent]
+    LoaderComponent, ErrorComponent]
 })
 export class DashboardModule { }
