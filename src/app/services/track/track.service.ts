@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { urlRoutes } from '../../../assets/secret'
 import { CookieService } from 'ngx-cookie-service';
 import * as moment from 'moment';
 import { CookieTokenService } from '../cookie/cookie-token.service';
+import { catchError, retry } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +32,15 @@ export class TrackService {
     const id = this.route.children[0].params['_value'].id
 
     time = time !== undefined ? time : 'long_term';
-    return this.http.post(urlRoutes['top-tracks'], { id, token, time })
+    return this.http.post(urlRoutes['top-tracks'], { id, token, time }).pipe(
+      retry(3), // retry a failed request up to 3 times
+      catchError(this.errHandling) // then handle the error
+    )
 
+  }
+
+  errHandling(err: HttpErrorResponse) {
+    return throwError('error')
   }
 
   getRecentTracks() {

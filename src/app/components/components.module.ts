@@ -11,8 +11,7 @@ import { TrackComponent } from './track/track.component';
 import { RedirectComponent } from './redirect/redirect.component';
 import { PlaylistIdComponent } from './playlist-id/playlist-id.component';
 import { UserPlaylistComponent } from './user-playlist/user-playlist.component';
-import { LoaderComponent } from './loader/loader.component';
-import { ErrorComponent } from './error/error.component';
+
 
 
 

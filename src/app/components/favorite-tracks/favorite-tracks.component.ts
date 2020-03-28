@@ -24,19 +24,31 @@ export class FavoriteTracksComponent implements OnInit {
   shortTermSub: Subscription;
   initialSub: Subscription;
 
+  serverError: boolean;
+
+
   constructor(
     private tracksService: TrackService,
     private router: Router,
-    private cookieTokenService: CookieTokenService
+
   ) { }
 
   ngOnInit() {
-    this.initialSub = this.tracksService.getTopTracks().subscribe(res => {
-      if (!this.cookieTokenService.didCookieExpire(res)) {
-        this.tracksList = res['tracks']
-        this.tracksList = this.tracksService.convertToMins(this.tracksList)
-      }
 
+    this.serverError = false
+    this.initialSub = this.tracksService.getTopTracks().subscribe(res => {
+
+      this.tracksList = res['tracks']
+      this.tracksList = this.tracksService.convertToMins(this.tracksList)
+
+      // if (!this.cookieTokenService.didCookieExpire(res)) {
+      //   this.tracksList = res['tracks']
+      //   this.tracksList = this.tracksService.convertToMins(this.tracksList)
+      // }
+
+    }, (error) => {
+      console.log('something went wrong with topTracks', error)
+      this.serverError = true
     })
   }
 

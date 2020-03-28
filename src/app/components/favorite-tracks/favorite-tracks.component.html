@@ -1,8 +1,11 @@
 <app-navbar></app-navbar>
 
-<app-loader *ngIf="!tracksList"></app-loader>
+<app-error *ngIf='serverError'></app-error>
 
-<div class="container" *ngIf="tracksList">
+
+<app-loader *ngIf="!tracksList && !serverError"></app-loader>
+
+<div class="container" *ngIf="tracksList && !serverError">
     <div class="row">
         <div class="col-md-12">
             <div class="d-flex flex-row justify-content-between ">
