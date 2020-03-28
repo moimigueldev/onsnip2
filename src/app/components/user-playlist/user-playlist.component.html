@@ -1,9 +1,12 @@
 <app-navbar></app-navbar>
 
-<app-loader *ngIf="!playlist"></app-loader>
+<app-error *ngIf='serverError'></app-error>
 
 
-<div class="container-fluid" *ngIf="playlist">
+<app-loader *ngIf="!playlist && !serverError"></app-loader>
+
+
+<div class="container-fluid" *ngIf="playlist && !serverError">
     <div class="row ">
 
         <div class="col-md-4 album-info px-0 ">

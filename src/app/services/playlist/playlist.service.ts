@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { urlRoutes } from '../../../assets/secret'
 import { CookieService } from 'ngx-cookie-service';
+import { throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 import * as moment from 'moment';
 import { CookieTokenService } from '../cookie/cookie-token.service';
@@ -64,14 +66,25 @@ export class PlaylistService {
   getAllPlaylist() {
     const token = this.cookieTokenService.getCookie()
 
-    return this.http.post(urlRoutes['all-playlist'], { token })
+    return this.http.post(urlRoutes['all-playlist'], { token }).pipe(
+      retry(3), // retry a failed request up to 3 times
+      catchError(this.errHandling) // then handle the error
+    )
   }
 
   getUserPlaylist() {
     const token = this.cookieTokenService.getCookie()
     this.id = this.route.children[0].params['_value'].id
-    return this.http.post(urlRoutes['user-playlist'], { id: this.id, token })
+    return this.http.post(urlRoutes['user-playlist'], { id: this.id, token }).pipe(
+      retry(3), // retry a failed request up to 3 times
+      catchError(this.errHandling) // then handle the error
+    )
 
 
   }
+
+  errHandling(err: HttpErrorResponse) {
+    return throwError('error')
+  }
+
 }

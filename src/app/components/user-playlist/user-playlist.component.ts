@@ -13,6 +13,7 @@ export class UserPlaylistComponent implements OnInit {
 
   playlist: any;
   playlistSub: Subscription;
+  serverError: boolean
 
   constructor(
     private playlistService: PlaylistService,
@@ -21,14 +22,16 @@ export class UserPlaylistComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this.serverError = false
     this.playlistSub = this.playlistService.getUserPlaylist().subscribe(res => {
 
-      if (!this.cookieTokenService.didCookieExpire(res)) {
-        this.playlist = this.playlistService.convertUserPlaylistToMins(res['playlist'])
-      }
+      this.playlist = this.playlistService.convertUserPlaylistToMins(res['playlist'])
 
 
-
+    }, (error) => {
+      console.log("error", error)
+      this.serverError = true
     })
   }
 

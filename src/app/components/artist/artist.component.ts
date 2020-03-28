@@ -30,7 +30,7 @@ export class ArtistComponent implements OnInit {
 
     }, (error) => {
 
-      console.log("error", error)
+
       this.serverError = true
       console.log('server error', this.serverError)
     })
