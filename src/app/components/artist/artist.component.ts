@@ -21,12 +21,22 @@ export class ArtistComponent implements OnInit {
   ngOnInit() {
     this.artistSub = this.artistsService.getArtist().subscribe((res) => {
 
-      if (!this.cookieTokenService.didCookieExpire(res)) {
-        this.artist = res['artist']
-        this.isFollowing = JSON.parse(res['following'])[0]
-      }
+      // if (!this.cookieTokenService.didCookieExpire(res)) {
+      //   this.artist = res['artist']
+      //   this.isFollowing = JSON.parse(res['following'])[0]
+      // }
 
+      this.artist = res['artist']
+      this.isFollowing = JSON.parse(res['following'])[0]
+
+
+    }, (error) => {
+      console.log('errr')
+      console.log("error", error)
     })
+
+
+
   }
 
   followArtist() {

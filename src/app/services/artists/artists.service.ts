@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { urlRoutes } from '../../../assets/secret'
 import { CookieTokenService } from '../cookie/cookie-token.service';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +22,15 @@ export class ArtistsService {
     const token = this.cookieTokenService.getCookie()
     const id = this.route.children[0].params['_value'].id
 
-    return this.http.post(urlRoutes['artist'], { id, token })
+    return this.http.post(urlRoutes['artist'], { id, token }).pipe(
+      retry(3), // retry a failed request up to 3 times
+      catchError(this.errHandling) // then handle the error
+    )
+  }
+
+  errHandling(err: HttpErrorResponse) {
+    // console.log('error', err)
+    return throwError('error')
   }
 
   followArtist(): void {
