@@ -25,27 +25,16 @@ export class ProfileRecommendationsComponent implements OnInit {
 
   ngOnInit() {
     this.serverError = false
-    this.newReleasesSubscription = this.userService.getUserDashboard().subscribe(res => {
 
+
+    this.newReleasesSubscription = this.userService.userData.subscribe(res => {
 
       this.newReleases = res['newReleases'].albums
       this.featuredPlaylist = res['featuredPlaylist']
       this.topArtists = res['topArtists']
 
-      // if (!this.cookieTokenService.didCookieExpire(res)) {
-      //   this.newReleases = res['newReleases'].albums
-      //   this.featuredPlaylist = res['featuredPlaylist']
-      //   this.topArtists = res['topArtists']
-      // }
-
-
-
-    }, (error) => {
-
-
-      this.serverError = true
-      console.log('server error', this.serverError)
     })
+
   }
 
   goToAlbum(id) {

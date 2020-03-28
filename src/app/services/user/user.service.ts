@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { urlRoutes } from '../../../assets/secret'
 import { OauthLoginService } from '../login/oauth-login.service';
 import { CookieTokenService } from '../cookie/cookie-token.service';
-import { throwError } from 'rxjs';
+import { throwError, Subject } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
 
@@ -18,6 +18,21 @@ export class UserService {
     private cookieTokenService: CookieTokenService
   ) { }
 
+  userData = new Subject();
+
+
+  // getUserDashboard() {
+
+  //   const token = this.cookieTokenService.getCookie();
+
+  //   return this.http.post(urlRoutes['user'], { token }).pipe(
+
+  //     catchError(this.errHandling) // then handle the error
+  //   ).subscribe(res => {
+
+  //     this.userData.next(res)
+  //   })
+  // }
 
   getUserDashboard() {
 
@@ -28,7 +43,6 @@ export class UserService {
       catchError(this.errHandling) // then handle the error
     )
   }
-
 
   errHandling(err: HttpErrorResponse) {
     return throwError('error')
