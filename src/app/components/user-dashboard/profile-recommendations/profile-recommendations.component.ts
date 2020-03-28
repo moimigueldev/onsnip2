@@ -15,7 +15,7 @@ export class ProfileRecommendationsComponent implements OnInit {
   newReleases: any;
   featuredPlaylist: any;
   topArtists: any;
-
+  serverError: boolean
 
   constructor(
     private userService: UserService,
@@ -24,16 +24,27 @@ export class ProfileRecommendationsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.serverError = false
     this.newReleasesSubscription = this.userService.getUserDashboard().subscribe(res => {
 
-      if (!this.cookieTokenService.didCookieExpire(res)) {
-        this.newReleases = res['newReleases'].albums
-        this.featuredPlaylist = res['featuredPlaylist']
-        this.topArtists = res['topArtists']
-      }
+
+      this.newReleases = res['newReleases'].albums
+      this.featuredPlaylist = res['featuredPlaylist']
+      this.topArtists = res['topArtists']
+
+      // if (!this.cookieTokenService.didCookieExpire(res)) {
+      //   this.newReleases = res['newReleases'].albums
+      //   this.featuredPlaylist = res['featuredPlaylist']
+      //   this.topArtists = res['topArtists']
+      // }
 
 
 
+    }, (error) => {
+
+
+      this.serverError = true
+      console.log('server error', this.serverError)
     })
   }
 

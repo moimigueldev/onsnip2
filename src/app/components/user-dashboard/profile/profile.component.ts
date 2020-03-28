@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
 
   profile: any;
   playlist: number;
-
+  serverError: boolean;
   profileSubscription: Subscription;
 
   constructor(
@@ -21,13 +21,21 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.serverError = false
     this.profileSubscription = this.userService.getUserDashboard().subscribe(res => {
-      if (!this.cookieTokenService.didCookieExpire(res)) {
-        this.profile = res['profile']
-        this.playlist = res['playlist'].total
-      }
+
+      this.profile = res['profile']
+      this.playlist = res['playlist'].total
+
+      // if (!this.cookieTokenService.didCookieExpire(res)) {
+      //   this.profile = res['profile']
+      //   this.playlist = res['playlist'].total
+      // }
 
 
+    }, (error) => {
+      this.serverError = true
+      console.log('server error', this.serverError)
     })
 
   }

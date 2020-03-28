@@ -1,4 +1,6 @@
-<div class="container" *ngIf="profile">
+<app-error *ngIf='serverError'></app-error>
+
+<div class="container" *ngIf="profile && !serverError">
     <div class="row mt-4">
         <div class="col-md-12 profile-content">
             <img src="{{profile.images[0].url}}" alt="" class="rounded-circle">
