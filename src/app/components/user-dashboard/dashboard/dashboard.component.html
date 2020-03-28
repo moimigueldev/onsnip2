@@ -1,8 +1,7 @@
 <app-navbar></app-navbar>
 
-<!-- <app-loader *ngIf="!profile"></app-loader>
-<app-profile *ngIf="profile"></app-profile>
-<app-profile-recommendations *ngIf="profile"></app-profile-recommendations> -->
+
+
 <app-error *ngIf='serverError'></app-error>
 <app-loader *ngIf="!userDataLoaded && !serverError"></app-loader>
 <app-profile></app-profile>

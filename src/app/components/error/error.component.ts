@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OauthLoginService } from 'src/app/services/login/oauth-login.service';
 
 @Component({
   selector: 'app-error',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private LoginService: OauthLoginService
+  ) { }
 
   ngOnInit() {
   }
 
+
+  onTryAgain() {
+    console.log('click')
+    this.LoginService.fetchUser()
+  }
 }

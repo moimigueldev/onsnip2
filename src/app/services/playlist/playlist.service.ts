@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { urlRoutes } from '../../../assets/secret'
-import { CookieService } from 'ngx-cookie-service';
 import { throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 

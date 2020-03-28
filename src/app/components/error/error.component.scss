@@ -1,0 +1,36 @@
+.container {
+  //   border: 1px solid red;
+  text-align: center;
+  margin-top: 10%;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+button {
+  background-color: white;
+  color: black;
+  font-weight: 700;
+  border-radius: 34px;
+  font-size: 12px;
+  height: 41px;
+  width: 113px;
+  margin-top: 10px;
+}
+
+p {
+  font-size: 13px;
+}
+
+//======================================================================
+//                        MEDIA QUERY
+//======================================================================
+
+//IPHONE X
+@media only screen and (max-device-width: 927px) {
+  .container {
+    //   border: 1px solid red;
+    margin-top: 44%;
+  }
+}
