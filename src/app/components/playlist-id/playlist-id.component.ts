@@ -15,24 +15,31 @@ export class PlaylistIdComponent implements OnInit {
 
   albumSub: Subscription;
   album: any;
+  serverError: boolean;
 
   constructor(
     private playlistService: PlaylistService,
-    private trackService: TrackService,
+
     private router: Router,
-    private cookieTokenService: CookieTokenService
+
   ) { }
 
   ngOnInit() {
+    this.serverError = false
     this.albumSub = this.playlistService.getPlaylist().subscribe(res => {
 
-      if (!this.cookieTokenService.didCookieExpire(res)) {
-        this.album = res;
-        this.album = this.playlistService.convertToMins(this.album)
-      }
 
+      this.album = res;
+      this.album = this.playlistService.convertToMins(this.album)
 
+      // if (!this.cookieTokenService.didCookieExpire(res)) {
+      //   this.album = res;
+      //   this.album = this.playlistService.convertToMins(this.album)
+      // }
 
+    }, (error) => {
+      console.log('serverError', error)
+      this.serverError = true
     })
   }
 

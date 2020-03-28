@@ -31,7 +31,10 @@ export class PlaylistService {
   getPlaylist() {
     const token = this.cookieTokenService.getCookie()
     this.id = this.route.children[0].params['_value'].id
-    return this.http.post(urlRoutes['playlistId'], { id: this.id, token })
+    return this.http.post(urlRoutes['playlistId'], { id: this.id, token }).pipe(
+      retry(3), // retry a failed request up to 3 times
+      catchError(this.errHandling) // then handle the error
+    )
   }
 
   convertToMins(arr) {

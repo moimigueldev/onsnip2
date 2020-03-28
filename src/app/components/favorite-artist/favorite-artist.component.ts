@@ -22,21 +22,28 @@ export class FavoriteArtistComponent implements OnInit {
   shortTermSub: Subscription;
   initialSub: Subscription;
   mediumTermSub: Subscription;
-
+  serverError: boolean;
   constructor(
     private artistService: ArtistsService,
     private router: Router,
-    private cookieTokenService: CookieTokenService
+
   ) { }
 
   ngOnInit() {
+
+    this.serverError = false
     this.initialSub = this.artistService.getTopArtists().subscribe(res => {
 
-      if (!this.cookieTokenService.didCookieExpire(res)) {
-        this.artists = res
-      }
 
+      this.artists = res
 
+      // if (!this.cookieTokenService.didCookieExpire(res)) {
+      //   this.artists = res
+      // }
+
+    }, (error) => {
+      console.log('serverError', error)
+      this.serverError = true
     })
   }
 

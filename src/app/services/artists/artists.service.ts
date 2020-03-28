@@ -52,6 +52,9 @@ export class ArtistsService {
 
     time = time !== undefined ? time : 'long_term';
 
-    return this.http.post(urlRoutes['top-artists'], { id, token, time })
+    return this.http.post(urlRoutes['top-artists'], { id, token, time }).pipe(
+      retry(3), // retry a failed request up to 3 times
+      catchError(this.errHandling) // then handle the error
+    )
   }
 }

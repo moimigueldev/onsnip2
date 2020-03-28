@@ -1,9 +1,12 @@
 <app-navbar></app-navbar>
 
-<app-loader *ngIf="!track && !trackFeatures"></app-loader>
+<app-error *ngIf='serverError'></app-error>
 
 
-<div class="container" *ngIf="track && trackFeatures">
+<app-loader *ngIf="!track && !trackFeatures && !serverError"></app-loader>
+
+
+<div class="container" *ngIf="track && trackFeatures && !serverError">
     <div class="row mt-4">
         <div class="col-md-12 profile-content">
             <img src="{{track.album.images[0].url}}" alt="">

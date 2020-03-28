@@ -23,7 +23,10 @@ export class TrackService {
 
     const token = this.cookieTokenService.getCookie()
     const id = this.route.children[0].params['_value'].id
-    return this.http.post(urlRoutes['tracks'], { id, token })
+    return this.http.post(urlRoutes['tracks'], { id, token }).pipe(
+      retry(3), // retry a failed request up to 3 times
+      catchError(this.errHandling) // then handle the error
+    )
   }
 
   getTopTracks(time?: string) {

@@ -15,21 +15,28 @@ export class TrackComponent implements OnInit {
   track: any;
   trackFeatures: any
   trackSub: Subscription;
+  serverError: boolean;
   constructor(
     private trackService: TrackService,
     private cookieTokenService: CookieTokenService
   ) { }
 
   ngOnInit() {
+
+    this.serverError = false
+
     this.trackSub = this.trackService.getTrack().subscribe(res => {
 
-      if (!this.cookieTokenService.didCookieExpire(res)) {
-        this.track = res['track']
-        this.trackFeatures = res['trackFeatures']
 
-        this.modFeatures()
-      }
+      this.track = res['track']
+      this.trackFeatures = res['trackFeatures']
 
+      this.modFeatures()
+
+
+    }, (error) => {
+      console.log('serverError', error)
+      this.serverError = true
     })
   }
 
