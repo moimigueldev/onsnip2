@@ -22,6 +22,7 @@ export class PlaylistComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.serverError = false
     this.playlistSub = this.playlistService.getAllPlaylist().subscribe(res => {
 
       this.playlist = res['playlist']

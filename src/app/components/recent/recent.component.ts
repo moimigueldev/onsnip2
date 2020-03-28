@@ -13,6 +13,7 @@ export class RecentComponent implements OnInit {
 
   tracksSub: Subscription;
   tracks: any
+  serverError: boolean
 
   constructor(
     private tracksService: TrackService,
@@ -21,11 +22,20 @@ export class RecentComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.serverError = false
     this.tracksSub = this.tracksService.getRecentTracks().subscribe(res => {
-      if (!this.cookieTokenService.didCookieExpire(res)) {
-        this.tracks = this.tracksService.convertRecentTrackstoMins(res['tracks'])
-      }
 
+      this.tracks = this.tracksService.convertRecentTrackstoMins(res['tracks'])
+
+      // if (!this.cookieTokenService.didCookieExpire(res)) {
+      //   this.tracks = this.tracksService.convertRecentTrackstoMins(res['tracks'])
+      // }
+
+    }, (error) => {
+
+
+      this.serverError = true
+      console.log('server error', this.serverError)
     })
   }
 

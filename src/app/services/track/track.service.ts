@@ -45,7 +45,10 @@ export class TrackService {
 
   getRecentTracks() {
     const token = this.cookieTokenService.getCookie()
-    return this.http.post(urlRoutes['recent-tracks'], { token })
+    return this.http.post(urlRoutes['recent-tracks'], { token }).pipe(
+      retry(3), // retry a failed request up to 3 times
+      catchError(this.errHandling) // then handle the error
+    )
   }
 
   convertToMins(arr) {
