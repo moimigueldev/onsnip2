@@ -3,7 +3,7 @@
 <div class="container" *ngIf="profile && !serverError">
     <div class="row mt-4">
         <div class="col-md-12 profile-content">
-            <img src="{{profile.images[0].url}}" alt="" class="rounded-circle">
+            <img [src]="userImage" alt="" class="rounded-circle">
             <!-- <img src="https://image.flaticon.com/icons/png/512/2111/2111624.png" alt=""> -->
             <br>
             <a href="{{profile.external_urls.spotify}}" style="display: inline-block;"

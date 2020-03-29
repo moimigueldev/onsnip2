@@ -14,10 +14,10 @@ export class ProfileComponent implements OnInit {
   playlist: number;
   serverError: boolean;
   profileSubscription: Subscription;
+  userImage: string
 
   constructor(
     private userService: UserService,
-    private cookieTokenService: CookieTokenService
   ) { }
 
   ngOnInit(): void {
@@ -26,11 +26,18 @@ export class ProfileComponent implements OnInit {
     this.profileSubscription = this.userService.userData.subscribe(res => {
       this.profile = res['profile']
       this.playlist = res['playlist'].total
+      this.checkForUserImage();
     })
 
   }
 
-  ngOnDestroy() {
+  checkForUserImage() {
+    this.userImage = this.profile.images.length ? this.profile.images[0].url : 'https://spinninrecords.com/images/img_profile.png'
+
+  }
+
+
+  ngOnDestroy(): void {
     this.profileSubscription ? this.profileSubscription.unsubscribe() : null
   }
 
