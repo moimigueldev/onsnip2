@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { urlRoutes } from '../../../assets/secret'
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from '../user/user.service';
 import { CookieTokenService } from '../cookie/cookie-token.service';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -55,6 +56,11 @@ export class OauthLoginService {
     const token = this.cookieService.get('access-token')
     return this.http.post(urlRoutes['user'], { token });
 
+  }
+
+  logout() {
+
+    this.cookieTokenService.deleteCookie()
   }
 
 

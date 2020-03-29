@@ -36,4 +36,10 @@ export class CookieTokenService {
     return false
   }
 
+  deleteCookie() {
+    this.cookieService.deleteAll()
+    this.router.navigate(['/'])
+
+  }
+
 }

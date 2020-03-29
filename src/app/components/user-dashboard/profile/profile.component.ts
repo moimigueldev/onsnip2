@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user/user.service';
 import { Subscription } from 'rxjs';
-import { CookieTokenService } from 'src/app/services/cookie/cookie-token.service';
+import { OauthLoginService } from 'src/app/services/login/oauth-login.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -14,10 +15,11 @@ export class ProfileComponent implements OnInit {
   playlist: number;
   serverError: boolean;
   profileSubscription: Subscription;
-  userImage: string
+  userImage: string = 'https://spinninrecords.com/images/img_profile.png';
 
   constructor(
     private userService: UserService,
+    private loginService: OauthLoginService
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +41,10 @@ export class ProfileComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.profileSubscription ? this.profileSubscription.unsubscribe() : null
+  }
+
+  logout() {
+    this.loginService.logout()
   }
 
 }
