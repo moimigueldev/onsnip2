@@ -37,10 +37,6 @@ export class FavoriteArtistComponent implements OnInit {
 
       this.artists = res
 
-      // if (!this.cookieTokenService.didCookieExpire(res)) {
-      //   this.artists = res
-      // }
-
     }, (error) => {
       console.log('serverError', error)
       this.serverError = true
